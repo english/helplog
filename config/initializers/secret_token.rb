@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Helplog::Application.config.secret_key_base = '60d30dfb7b4c38caeae58229eb87922612b4a58a16f9d3d9b38a534c3d020dbc4a823d388e932031a01e40f6caa1f742b8f3b88c5d5b5acfdce2900f54d9b880'
+Helplog::Application.config.secret_key_base = ENV['SECRET_KEY_BASE'] || '60d30dfb7b4c38caeae58229eb87922612b4a58a16f9d3d9b38a534c3d020dbc4a823d388e932031a01e40f6caa1f742b8f3b88c5d5b5acfdce2900f54d9b880'
