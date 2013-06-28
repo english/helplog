@@ -1,0 +1,20 @@
+---
+language: ruby
+rvm: 2.0.0
+before_script: rake db:migrate; rake db:test:prepare
+env:
+  global:
+    - secure: |-
+        lTY+HopqIjcbvPWZijGRHLGVBbI2CQVEystfzTESvQmhA6cCSRWutjIbVn0m
+        xWBU0EOHhNRd06CBUUj9KHtgE0AN54gbxhCJX+pyOEiLdUIavcYhz2c7tC2B
+        MVyfkQpLLBU1M6zSa/hiEcOIgFyLXwmlpm1wuDVVPg1/S2yeKt8=
+after_success:
+  - wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+  - git remote add heroku git@heroku.com:helplog.git
+  - echo "Host heroku.com" >> ~/.ssh/config
+  - echo "   StrictHostKeyChecking no" >> ~/.ssh/config
+  - echo "   CheckHostIP no" >> ~/.ssh/config
+  - echo "   UserKnownHostsFile=/dev/null" >> ~/.ssh/config
+  - heroku keys:clear
+  - yes | heroku keys:add
+  - yes | git push heroku master

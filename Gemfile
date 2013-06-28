@@ -9,6 +9,7 @@ end
 
 group :test do
   gem 'sqlite3'
+  gem 'rake'
 end
 
 group :production do

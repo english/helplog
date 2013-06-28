@@ -115,6 +115,7 @@ DEPENDENCIES
   jquery-rails
   pg
   rails (= 4.0.0)
+  rake
   sass-rails (~> 4.0.0)
   sdoc
   sqlite3
