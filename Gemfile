@@ -10,6 +10,7 @@ end
 group :test do
   gem 'sqlite3'
   gem 'rake'
+  gem 'capybara'
 end
 
 group :production do
@@ -43,7 +44,7 @@ group :doc do
 end
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby', '~> 3.0.0', require: 'bcrypt'
 
 # Use unicorn as the app server
 # gem 'unicorn'

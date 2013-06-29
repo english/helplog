@@ -1,0 +1,3 @@
+test_user:
+  email: someone@example.com
+  password_digest: <%= BCrypt::Password.create('secret') %>
