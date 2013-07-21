@@ -1,0 +1,69 @@
+<%= cache @posts do %>
+  <h1>Welcome to HelpLog</h1>
+
+  <h2>Latest Posts</h2>
+
+  <section class="published-posts">
+    <%= render 'posts/posts' %>
+  </section>
+
+  <div class="sidebar">
+    <aside class="about">
+      <h3>About this Blog</h3>
+      <p>
+        The authors on this blog are an enthusiastic software engineering team
+        building web applications.
+      </p>
+
+      <p>
+        We use a variety of programming languages in our day-to-day work, but
+        mostly Ruby and JavaScript.
+      </p>
+
+      <p>
+        We plan to use this blog to document what we have learned as a team.
+        The main reason for this is so that we can record the lessons we have
+        learned from the new and old technologies that we have used so that we
+        can make the best decisions on what to use for our latest projects.
+        If others can benefit from this, then that is great too!
+      </p>
+    </aside>
+
+    <div class="authors">
+      <aside class="author chris">
+      </aside>
+
+      <aside class="author nigel">
+      </aside>
+
+      <aside class="author massimo">
+      </aside>
+
+      <aside class="author jamie">
+        <p>
+          I have been building websites since around 2009. While I studied Java
+          at University I built my first websites in PHP when learning the trade.
+          After learning about Ruby in 2011, I saw sence and focused all of my
+          spare time learning the language and popular libraries.
+        </p>
+
+        <p>
+          I'm very happy to now be programming Ruby in my day job and have done
+          so since 2012. I've recently been focusing a bit more time trying out
+          some of the JavasScript frameworks that have emerged over the past
+          year or two with EmberJS looking the most interesting.
+        </p>
+
+        <p>
+          Originally I'm from the North of England but I'm currently enjoying
+          the high life of London. I try to attend the London Ruby User Group
+          as often as possible, as well as some of the other London tech
+          meetups, including West London Hack Night.
+        </p>
+      </aside>
+
+      <aside class="author arron">
+      </aside>
+    </div>
+  </div>
+<% end %>

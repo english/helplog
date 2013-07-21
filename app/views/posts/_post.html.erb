@@ -1,0 +1,16 @@
+<%= cache post do %>
+  <article class="post">
+    <h1 class="title">
+      <%= link_to post.title, post %>
+    </h1>
+    
+    <div class="content">
+      <%= post.content %>
+    </div>
+
+    <div class="actions">
+      <%= link_to 'Edit', edit_post_path(post), class: 'show-when-logged-in hidden' %>
+      <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: 'show-when-logged-in hidden' %>
+    </div>
+  </article>
+<% end %>

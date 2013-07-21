@@ -1,37 +1,17 @@
 <%= cache @posts do %>
-  <table>
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Content</th>
-        <th></th>
-        <th></th>
-        <th></th>
-      </tr>
-    </thead>
+  <div class="posts">
+    <% @posts.each do |post| %>
+      <%= render post %>
+    <% end %>
 
-    <tbody>
-      <% @posts.each do |post| %>
-        <%= cache post do %>
-          <tr>
-            <td><%= post.title %></td>
-            <td><%= post.content %></td>
-            <td><%= link_to 'Show', post %></td>
-            <td><%= link_to 'Edit', edit_post_path(post), class: 'show-when-logged-in hidden' %></td>
-            <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: 'show-when-logged-in hidden' %></td>
-          </tr>
-        <% end %>
-      <% end %>
-    </tbody>
-  </table>
+    <div class="actions">
+      <%= link_to 'Published Posts', published_posts_path %>
 
-  <br />
-
-  <%= link_to 'Published Posts', published_posts_path %>
-
-  <div class="show-when-logged-in hidden">
-    <%= link_to 'All Posts', posts_path %>
-    <%= link_to 'Unpublished Posts', unpublished_posts_path %>
-    <%= link_to 'New Post', new_post_path %>
+      <span class="show-when-logged-in hidden">
+        <%= link_to 'All Posts', posts_path %>
+        <%= link_to 'Unpublished Posts', unpublished_posts_path %>
+        <%= link_to 'New Post', new_post_path %>
+      </span>
+    </div>
   </div>
 <% end %>

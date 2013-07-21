@@ -1,5 +1,5 @@
 Helplog::Application.routes.draw do
-  root to: 'posts#published'
+  root to: 'pages#home'
 
   get 'login', to: 'sessions#new', as: :login
   post 'login', to: 'sessions#create', as: :sessions
