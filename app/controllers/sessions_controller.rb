@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  before_action -> { redirect_to root_path if session[:current_user] }, only: %i( new create )
+  before_action -> { redirect_to root_path if logged_in? }, only: %i( new create )
 
   def new
   end

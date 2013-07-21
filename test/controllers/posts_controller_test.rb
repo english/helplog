@@ -5,15 +5,29 @@ class PostsControllerTest < ActionController::TestCase
     @post = posts(:one)
   end
 
-  test "should get index" do
+  test "should get index when logged in" do
+    session[:current_user] = users(:test_user).id
     get :index
     assert_response :success
     assert_not_nil assigns(:posts)
   end
 
-  test "should get new" do
+  test "should not get index when logged out" do
+    session[:current_user] = nil
+    get :index
+    assert_redirected_to login_path
+  end
+
+  test "should get new when logged in" do
+    session[:current_user] = users(:test_user).id
     get :new
     assert_response :success
+  end
+
+  test "should not get new when logged out" do
+    session[:current_user] = nil
+    get :new
+    assert_redirected_to login_path
   end
 
   test "should create post" do

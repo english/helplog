@@ -1,3 +1,5 @@
+require 'test_helper'
+
 class SessionsControllerTest < ActionController::TestCase
   test "logging in with valid credentials" do
     post :create, valid_credentials
