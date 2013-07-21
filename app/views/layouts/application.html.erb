@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Helplog</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>Helplog</title>
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+  </head>
 
-<%= yield %>
+  <body>
+    <header>
+      <nav class="login-logout">
+        <ul>
+          <li class="hide-when-logged-in"><%= link_to 'Login', login_path %></li>
+          <li class="show-when-logged-in hidden"><%= link_to 'Logout', logout_path, method: :delete %></li>
+        </ul>
+      </nav>
+    </header>
 
-</body>
+    <%= yield %>
+  </body>
 </html>

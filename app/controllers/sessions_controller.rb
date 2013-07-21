@@ -18,4 +18,12 @@ class SessionsController < ApplicationController
       render :new, error: 'Invalid email or password'
     end
   end
+
+  def active
+    render json: {
+      session: {
+        active: logged_in?
+      }
+    }
+  end
 end

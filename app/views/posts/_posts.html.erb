@@ -15,16 +15,21 @@
         <td><%= post.title %></td>
         <td><%= post.content %></td>
         <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <div class="show-when-logged-in hidden">
+          <td><%= link_to 'Edit', edit_post_path(post) %></td>
+          <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </div>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
+<br />
 
-<%= link_to 'New Post', new_post_path %>
-<%= link_to 'All Posts', posts_path %>
 <%= link_to 'Published Posts', published_posts_path %>
-<%= link_to 'Unpublished Posts', unpublished_posts_path %>
+
+<div class="show-when-logged-in hidden">
+  <%= link_to 'All Posts', posts_path %>
+  <%= link_to 'Unpublished Posts', unpublished_posts_path %>
+  <%= link_to 'New Post', new_post_path %>
+</div>
