@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
-    @posts = Post.published
+    @posts = Post.all
   end
 
   def show
@@ -47,6 +47,14 @@ class PostsController < ApplicationController
       format.html { redirect_to posts_url }
       format.json { head :no_content }
     end
+  end
+
+  def unpublished
+    @posts = Post.unpublished
+  end
+
+  def published
+    @posts = Post.published
   end
 
   private

@@ -15,10 +15,23 @@ class ManagePostTest < ActionDispatch::IntegrationTest
     click_button 'Create Post'
 
     visit posts_path
+    assert page.has_content?('Test Blog Post Title')
+    assert page.has_content?('Some test content.')
+
+    visit published_posts_path
     refute page.has_content?('Test Blog Post Title')
     refute page.has_content?('Some test content.')
 
+    visit unpublished_posts_path
+    assert page.has_content?('Test Blog Post Title')
+    assert page.has_content?('Some test content.')
+
     visit edit_post_path(Post.last)
     check 'Published'
+    click_button 'Update Post'
+
+    visit published_posts_path
+    assert page.has_content?('Test Blog Post Title')
+    assert page.has_content?('Some test content.')
   end
 end

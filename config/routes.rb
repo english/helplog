@@ -5,5 +5,8 @@ Helplog::Application.routes.draw do
   post 'login', to: 'sessions#create', as: :sessions
   delete 'logout', to: 'sessions#destroy', as: :logout
 
-  resources :posts
+  resources :posts do
+    get 'unpublished', on: :collection
+    get 'published', on: :collection
+  end
 end
