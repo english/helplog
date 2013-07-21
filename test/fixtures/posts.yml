@@ -1,9 +1,8 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
-one:
+rails_4:
   title: Rails 4
   content: We have started a new Rails 4 project hoping to take advantage of the new caching approach and Turbolinks. Here is how its gone so far...
 
-two:
+tmux:
   title: tmux
   content: As a team, we have been using tmux for a few months. We believe it has been a very convenient mechanism for managing many terminal sessions. We particularly like...
+  published: true

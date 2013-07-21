@@ -1,12 +1,13 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action -> { redirect_to login_path unless logged_in? }, only: %i( index new )
+  before_action :set_post, only: %i( show edit update destroy )
+  before_action -> { redirect_to login_path unless logged_in? }, except: %w( show published )
 
   def index
     @posts = Post.all
   end
 
   def show
+    render status: :forbidden unless logged_in? or @post.published?
   end
 
   def new
