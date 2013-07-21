@@ -4,9 +4,11 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
+    fresh_when(etag: @posts, last_modified: @posts.maximum(:updated_at), public: true)
   end
 
   def show
+    fresh_when(@post)
     render status: :forbidden unless logged_in? or @post.published?
   end
 
@@ -15,6 +17,7 @@ class PostsController < ApplicationController
   end
 
   def edit
+    fresh_when(@post)
   end
 
   def create
@@ -53,10 +56,12 @@ class PostsController < ApplicationController
 
   def unpublished
     @posts = Post.unpublished
+    fresh_when(etag: @posts, last_modified: @posts.maximum(:updated_at))
   end
 
   def published
     @posts = Post.published
+    fresh_when(etag: @posts, last_modified: @posts.maximum(:updated_at), public: true)
   end
 
   private
