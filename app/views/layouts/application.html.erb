@@ -1,22 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>Helplog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
   </head>
 
   <body>
-    <header>
-      <nav class="login-logout">
-        <ul>
-          <li class="hide-when-logged-in"><%= link_to 'Login', login_path %></li>
-          <li class="show-when-logged-in hidden"><%= link_to 'Logout', logout_path, method: :delete %></li>
-        </ul>
-      </nav>
-    </header>
+    <div class="container">
+      <header>
+        <nav class="login-logout">
+          <ul>
+            <li class="hide-when-logged-in"><%= link_to 'Login', login_path %></li>
+            <li class="show-when-logged-in hidden"><%= link_to 'Logout', logout_path, method: :delete %></li>
+          </ul>
+        </nav>
+      </header>
 
-    <%= yield %>
+      <%= yield %>
+    </div>
   </body>
 </html>

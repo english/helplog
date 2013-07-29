@@ -1,13 +1,15 @@
 <%= cache @posts do %>
-  <h1>Welcome to HelpLog</h1>
+  <div role="main" class="col-lg-8">
+    <h1>Welcome to HelpLog</h1>
 
-  <h2>Latest Posts</h2>
+    <h2>Latest Posts</h2>
 
-  <section class="published-posts">
-    <%= render 'posts/posts' %>
-  </section>
+    <section class="published-posts">
+      <%= render 'posts/posts' %>
+    </section>
+  </div>
 
-  <div class="sidebar">
+  <div class="sidebar col-lg-4">
     <aside class="about">
       <h3>About this Blog</h3>
       <p>
@@ -29,17 +31,57 @@
       </p>
     </aside>
 
-    <div class="authors">
-      <aside class="author chris">
-      </aside>
+    <aside class="authors">
+      <h3>Blog Authors</h3>
 
-      <aside class="author nigel">
-      </aside>
+      <section class="author chris">
+        <h4>Chris</h4>
 
-      <aside class="author massimo">
-      </aside>
+        <p>
+          Lorem ipsizzle daahng dawg ghetto pizzle, shiz we gonna chung elit.
+          Yo sapizzle velizzle, crackalackin volutpat, suscipit stuff, gravida
+          vel, i'm in the shizzle. my shizz you son of a bizzle. Sizzle
+          erizzle. Gangsta izzle shiznit dapibus daahng dawg sheezy doggy.
+          Maurizzle izzle nibh fo shizzle turpizzle. Get down get down izzle
+          black. Pellentesque eleifend rhoncizzle its fo rizzle. In hac
+          habitasse platea dictumst.
+        </p>
+      </section>
 
-      <aside class="author jamie">
+      <section class="author nigel">
+        <h4>Nigel</h4>
+
+        <p>
+          In check it out i saw beyonces tizzles and my pizzle went crizzle
+          crunk crunk. Check out this rhoncizzle, arcu we gonna chung
+          tellivizzle facilisizzle, da bomb bizzle dope sem, shiznit auctizzle
+          check it out felizzle a est. Suspendisse owned fo shizzle my nizzle
+          augue. Get down get down egestas bling bling ut mammasay mammasa
+          mamma oo sa. Prizzle consectetizzle blandit sapizzle. Etizzle
+          aliquizzle, dizzle fo shizzle yo mamma accumsan tincidunt, ghetto
+          sizzle ultricizzle sem, izzle vestibulizzle phat nisi mah nizzle amet
+          funky fresh. Maecenizzle da bomb tortor pizzle gangster. Phasellus
+          lobortizzle.
+        </p>
+      </section>
+
+      <section class="author massimo">
+        <h4>Massimo</h4>
+
+        <p>
+          Sizzle go to hizzle. Aliquizzle sagittis things shit maurizzle.
+          Fizzle ante ipsizzle fizzle izzle faucibizzle dawg luctizzle et
+          gizzle izzle cubilia Crazy; Aenizzle vestibulum. Pellentesque sheezy
+          morbi izzle its fo rizzle et netus et malesuada fames pimpin' turpis
+          ma nizzle. Cool tempor ghetto phat. Izzle erizzle volutpat.
+          Vivamizzle tortor sizzle, scelerisque sure, crunk a, crunk vizzle,
+          arcu.
+        </p>
+      </section>
+
+      <section class="author jamie">
+        <h4>Jamie</h4>
+
         <p>
           I have been building websites since around 2009. While I studied Java
           at University I built my first websites in PHP when learning the trade.
@@ -60,10 +102,23 @@
           as often as possible, as well as some of the other London tech
           meetups, including West London Hack Night.
         </p>
-      </aside>
+      </section>
 
-      <aside class="author arron">
-      </aside>
-    </div>
+      <section class="author arron">
+        <h4>Arron</h4>
+
+        <p>
+          Aliquam you son of a bizzle, sizzle et blandizzle ghetto, nibh
+          shizzle my nizzle crocodizzle tempizzle rizzle, sizzle mollis magna
+          justo pellentesque boofron. Tellivizzle shiz, libero pizzle
+          euismizzle fermentum, ipsizzle sheezy gravida felis, ut vehicula nisl
+          pimpin' sed mauris. Morbi sheezy elizzle, phat quizzle, malesuada
+          volutpizzle, mammasay mammasa mamma oo sa izzle, sizzle. Brizzle
+          shizznit. Yo mamma placerat, nulla cursizzle izzle, yippiyo check out
+          this facilisis rizzle, egizzle bibendum pede dope boofron boofron.
+          Donizzle lectus.
+        </p>
+      </section>
+    </aside>
   </div>
 <% end %>
