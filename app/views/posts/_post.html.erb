@@ -8,9 +8,9 @@
       <%= post.content %>
     </div>
 
-    <div class="actions">
-      <%= link_to 'Edit', edit_post_path(post), class: 'show-when-logged-in hidden' %>
-      <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: 'show-when-logged-in hidden' %>
+    <div class="actions show-when-logged-in hidden">
+      <%= link_to 'Edit', edit_post_path(post) %>
+      <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
     </div>
   </article>
 <% end %>
