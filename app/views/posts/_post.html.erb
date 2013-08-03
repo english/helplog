@@ -5,7 +5,7 @@
     </h1>
     
     <div class="content">
-      <%= post.content %>
+      <%= raw ::Redcarpet::Markdown.new(::Redcarpet::Render::XHTML).render(post.content) %>
     </div>
 
     <div class="actions show-when-logged-in hidden">

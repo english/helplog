@@ -3,9 +3,12 @@ rails_4:
   content:
     We have started a new Rails 4 project hoping to take advantage of the new caching approach and Turbolinks. Here is how its gone so far.
 
+
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lacinia aliquam mauris a mattis. Nulla eu diam mi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed adipiscing orci quis mi eleifend, at rhoncus diam posuere. Sed sit amet dolor quis nulla aliquet fringilla. Sed elementum ante ac vulputate porta. Pellentesque ultrices lectus rutrum turpis cursus, id rhoncus eros ullamcorper. Etiam at metus sed ante ornare eleifend. Donec aliquet metus in eros tincidunt vulputate. Etiam ac aliquam lorem. Nam pretium lectus quis nisi molestie aliquam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Phasellus viverra ultrices massa non scelerisque.
 
+
     Fusce accumsan vitae nibh nec pretium. Etiam a vestibulum purus, non feugiat ipsum. Vestibulum imperdiet risus neque, vitae auctor risus volutpat lacinia. Nunc sagittis mauris eu malesuada varius. Maecenas mi dui, tempus sit amet tempor et, cursus a turpis. Aliquam posuere neque in diam aliquet venenatis. Donec eu rutrum lectus, commodo tempus dui.
+
 
     Mauris elementum consequat rhoncus. Vestibulum tristique, nibh vitae lacinia interdum, nulla dui venenatis dolor, vitae pretium felis tellus eu mi. Praesent magna urna, accumsan sed libero at, sagittis fringilla nunc. Cras vehicula est eros, ac pharetra elit volutpat at. Etiam venenatis rhoncus nisl, a venenatis risus. Vivamus porttitor rutrum leo sit amet fermentum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent vel mattis nisi. Sed a placerat est. Curabitur fringilla, nisl sit amet pellentesque venenatis, magna risus varius lorem, sed suscipit enim justo eget ante. Nam ac fringilla mi, id commodo magna. Nulla nec urna eget augue sollicitudin dictum eu eget ante. Mauris ligula diam, lobortis vitae purus sed, bibendum scelerisque augue. Vestibulum et nibh non enim ultricies viverra. Quisque scelerisque, tortor eget sollicitudin cursus, nisi arcu rutrum risus, a fermentum mi quam vitae lectus. Vivamus pretium lacus eget auctor dapibus.
 
@@ -15,9 +18,12 @@ tmux:
   content:
     As a team, we have been using tmux for a few months. We believe it has been a very convenient mechanism for managing many terminal sessions.
 
+
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lacinia aliquam mauris a mattis. Nulla eu diam mi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed adipiscing orci quis mi eleifend, at rhoncus diam posuere. Sed sit amet dolor quis nulla aliquet fringilla. Sed elementum ante ac vulputate porta. Pellentesque ultrices lectus rutrum turpis cursus, id rhoncus eros ullamcorper. Etiam at metus sed ante ornare eleifend. Donec aliquet metus in eros tincidunt vulputate. Etiam ac aliquam lorem. Nam pretium lectus quis nisi molestie aliquam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Phasellus viverra ultrices massa non scelerisque.
 
+
     Fusce accumsan vitae nibh nec pretium. Etiam a vestibulum purus, non feugiat ipsum. Vestibulum imperdiet risus neque, vitae auctor risus volutpat lacinia. Nunc sagittis mauris eu malesuada varius. Maecenas mi dui, tempus sit amet tempor et, cursus a turpis. Aliquam posuere neque in diam aliquet venenatis. Donec eu rutrum lectus, commodo tempus dui.
+
 
     Mauris elementum consequat rhoncus. Vestibulum tristique, nibh vitae lacinia interdum, nulla dui venenatis dolor, vitae pretium felis tellus eu mi. Praesent magna urna, accumsan sed libero at, sagittis fringilla nunc. Cras vehicula est eros, ac pharetra elit volutpat at. Etiam venenatis rhoncus nisl, a venenatis risus. Vivamus porttitor rutrum leo sit amet fermentum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent vel mattis nisi. Sed a placerat est. Curabitur fringilla, nisl sit amet pellentesque venenatis, magna risus varius lorem, sed suscipit enim justo eget ante. Nam ac fringilla mi, id commodo magna. Nulla nec urna eget augue sollicitudin dictum eu eget ante. Mauris ligula diam, lobortis vitae purus sed, bibendum scelerisque augue. Vestibulum et nibh non enim ultricies viverra. Quisque scelerisque, tortor eget sollicitudin cursus, nisi arcu rutrum risus, a fermentum mi quam vitae lectus. Vivamus pretium lacus eget auctor dapibus.
 
@@ -27,6 +33,8 @@ ember_js:
   content:
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lacinia aliquam mauris a mattis. Nulla eu diam mi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed adipiscing orci quis mi eleifend, at rhoncus diam posuere. Sed sit amet dolor quis nulla aliquet fringilla. Sed elementum ante ac vulputate porta. Pellentesque ultrices lectus rutrum turpis cursus, id rhoncus eros ullamcorper. Etiam at metus sed ante ornare eleifend. Donec aliquet metus in eros tincidunt vulputate. Etiam ac aliquam lorem. Nam pretium lectus quis nisi molestie aliquam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Phasellus viverra ultrices massa non scelerisque.
 
+
     Fusce accumsan vitae nibh nec pretium. Etiam a vestibulum purus, non feugiat ipsum. Vestibulum imperdiet risus neque, vitae auctor risus volutpat lacinia. Nunc sagittis mauris eu malesuada varius. Maecenas mi dui, tempus sit amet tempor et, cursus a turpis. Aliquam posuere neque in diam aliquet venenatis. Donec eu rutrum lectus, commodo tempus dui.
+
 
     Mauris elementum consequat rhoncus. Vestibulum tristique, nibh vitae lacinia interdum, nulla dui venenatis dolor, vitae pretium felis tellus eu mi. Praesent magna urna, accumsan sed libero at, sagittis fringilla nunc. Cras vehicula est eros, ac pharetra elit volutpat at. Etiam venenatis rhoncus nisl, a venenatis risus. Vivamus porttitor rutrum leo sit amet fermentum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent vel mattis nisi. Sed a placerat est. Curabitur fringilla, nisl sit amet pellentesque venenatis, magna risus varius lorem, sed suscipit enim justo eget ante. Nam ac fringilla mi, id commodo magna. Nulla nec urna eget augue sollicitudin dictum eu eget ante. Mauris ligula diam, lobortis vitae purus sed, bibendum scelerisque augue. Vestibulum et nibh non enim ultricies viverra. Quisque scelerisque, tortor eget sollicitudin cursus, nisi arcu rutrum risus, a fermentum mi quam vitae lectus. Vivamus pretium lacus eget auctor dapibus.
