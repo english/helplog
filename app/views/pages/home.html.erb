@@ -1,34 +1,36 @@
 <%= cache @posts do %>
-  <div role="main" class="col-lg-8">
-    <h1>Welcome to HelpLog</h1>
+  <div class="row">
+    <div role="main" class="col-lg-8">
+      <h1>Welcome to HelpLog</h1>
 
-    <h2>Latest Posts</h2>
+      <h2>Latest Posts</h2>
 
-    <section class="published-posts">
-      <%= render 'posts/posts' %>
-    </section>
-  </div>
+      <section class="published-posts">
+        <%= render 'posts/posts' %>
+      </section>
+    </div>
 
-  <div class="sidebar col-lg-4">
-    <aside class="about">
-      <h3>About this Blog</h3>
-      <p>
-        The authors on this blog are an enthusiastic software engineering team
-        building web applications.
-      </p>
+    <div class="sidebar col-lg-4">
+      <aside class="about">
+        <h3>About this Blog</h3>
+        <p>
+          The authors on this blog are an enthusiastic software engineering team
+          building web applications.
+        </p>
 
-      <p>
-        We use a variety of programming languages in our day-to-day work, but
-        mostly Ruby and JavaScript.
-      </p>
+        <p>
+          We use a variety of programming languages in our day-to-day work, but
+          mostly Ruby and JavaScript.
+        </p>
 
-      <p>
-        We plan to use this blog to document what we have learned as a team.
-        The main reason for this is so that we can record the lessons we have
-        learned from the new and old technologies that we have used so that we
-        can make the best decisions on what to use for our latest projects.
-        If others can benefit from this, then that is great too!
-      </p>
-    </aside>
+        <p>
+          We plan to use this blog to document what we have learned as a team.
+          The main reason for this is so that we can record the lessons we have
+          learned from the new and old technologies that we have used so that we
+          can make the best decisions on what to use for our latest projects.
+          If others can benefit from this, then that is great too!
+        </p>
+      </aside>
+    </div>
   </div>
 <% end %>
