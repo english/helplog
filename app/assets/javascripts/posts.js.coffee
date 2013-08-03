@@ -1,7 +1,7 @@
 truncatePostContent = ->
-  content = $('.truncate-post-content .post .content').text()
-  truncatedContent = _.str.truncate(content, 300)
-  $('.truncate-post-content .post .content').html("<p>#{truncatedContent}</p>")
+  _.each $('.truncate-post-content .post .content'), (content) ->
+    truncated = _.str.truncate($(content).text(), 300)
+    $(content).html("<p>#{truncated}</p>")
 
 $(truncatePostContent)
-document.addEventListener 'page:change', truncatePostContent
+document.addEventListener('page:change', truncatePostContent)
