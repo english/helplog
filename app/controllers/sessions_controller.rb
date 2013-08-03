@@ -21,9 +21,7 @@ class SessionsController < ApplicationController
 
   def active
     render json: {
-      session: {
-        active: logged_in?
-      }
+      session: { active: logged_in? }
     }
   end
 end

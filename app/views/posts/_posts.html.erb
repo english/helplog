@@ -1,5 +1,5 @@
 <%= cache @posts do %>
-  <div class="posts">
+  <div class="posts truncate-post-content">
     <% @posts.each do |post| %>
       <%= render post %>
     <% end %>
