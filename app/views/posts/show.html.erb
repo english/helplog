@@ -1,4 +1,6 @@
-<%= render @post %>
+<div class="remove-link-from-post-title">
+  <%= render @post %>
+</div>
 
 <div class="hide-when-logged-in">
   <%= link_to 'All posts', published_posts_path %>
