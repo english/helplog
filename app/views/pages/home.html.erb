@@ -1,35 +1,42 @@
 <%= cache @posts do %>
   <div class="row">
     <div role="main" class="col-lg-8">
-      <h1>Welcome to HelpLog</h1>
-
-      <h2>Latest Posts</h2>
+      <h1>Latest Posts</h1>
 
       <section class="published-posts">
         <%= render 'posts/posts' %>
       </section>
     </div>
 
-    <div class="sidebar col-lg-4">
-      <aside class="about text-muted">
-        <h3>About this Blog</h3>
-        <p>
-          The authors on this blog are an enthusiastic software engineering team
-          building web applications.
-        </p>
+    <div class="col-lg-4">
+      <aside class="panel about">
+        <div class="panel-heading">
+          About this Blog
+        </div>
 
-        <p>
-          We use a variety of programming languages in our day-to-day work, but
-          mostly Ruby and JavaScript.
-        </p>
+        <div class="panel-content text-muted">
+          <p>
+            The authors on this blog are an enthusiastic software engineering team
+            building web applications.
+          </p>
 
-        <p>
-          We plan to use this blog to document what we have learned as a team.
-          The main reason for this is so that we can record the lessons we have
-          learned from the new and old technologies that we have used so that we
-          can make the best decisions on what to use for our latest projects.
-          If others can benefit from this, then that is great too!
-        </p>
+          <p>
+            We use a variety of programming languages in our day-to-day work, but
+            mostly Ruby and JavaScript.
+          </p>
+
+          <p>
+            We plan to use this blog to document what we have learned as a team.
+            The main reason for this is so that we can record the lessons we have
+            learned from the new and old technologies that we have used so that we
+            can make the best decisions on what to use for our latest projects.
+            If others can benefit from this, then that is great too!
+          </p>
+        </div>
+
+        <div class="panel-footer">
+          Contact us: <%= mail_to 'helplog@gmail.com' %>
+        </div>
       </aside>
     </div>
   </div>

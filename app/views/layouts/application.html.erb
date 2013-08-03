@@ -13,7 +13,8 @@
     <div class="container">
       <header class="show-when-logged-in hidden">
         <div class="navbar">
-          <a class="navbar-brand" href="#">Helplog</a>
+          <%= link_to 'Helplog', root_path, class: 'navbar-brand' %>
+
           <ul class="nav navbar-nav">
             <li><%= link_to 'Home', root_path %></li>
             <li><%= link_to 'Published Posts' %></li>
