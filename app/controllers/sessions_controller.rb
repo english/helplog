@@ -1,27 +1,29 @@
 class SessionsController < ApplicationController
-  before_action -> { redirect_to root_path if logged_in? }, only: %i( new create )
-
-  def new
-  end
-
   def destroy
     session[:current_user] = nil
-    redirect_to root_path
+    render json: {}, status: :accepted
   end
 
   def create
-    user = User.find_by_email(params[:email])
-    if user && user.authenticate(params[:password])
+    user = User.find_by_email(params[:session][:email])
+
+    if user && user.authenticate(params[:session][:password])
+      puts 'in'
       session[:current_user] = user.id
-      redirect_to root_path
+      render json: { session: { id: 'current', active: true } }
     else
-      render :new, error: 'Invalid email or password'
+      puts 'out'
+      render json: {
+        errors: {
+          email: 'invalid email or password'
+        }
+      }, status: :unprocessable_entity
     end
   end
 
   def show
     render json: {
-      session: { active: logged_in? }
+      session: { id: 'current', active: logged_in? }
     }
   end
 end
