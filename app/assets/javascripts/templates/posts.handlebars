@@ -1,0 +1,26 @@
+<div class="row">
+  <div role="main" class="col-lg-8">
+    <h1>Latest Posts</h1>
+
+    <section class="published-posts">
+      {{#each model}}
+        <article class="post">
+          <h1 class="title">
+            {{#linkTo 'post' this}} {{title}} {{/linkTo}}
+          </h1>
+          <div class="body">{{truncatedMarkdown body}}</div>
+          {{#linkTo 'posts.edit' this class="btn btn-warning"}} Edit {{/linkTo}}
+          <a {{action 'delete' this}} class="btn btn-danger">Delete</a>
+        </article>
+      {{/each}}
+    </section>
+
+    <hr />
+
+    {{#linkTo 'posts.new' class="btn btn-primary"}} New Post {{/linkTo}}
+  </div>
+
+  <div class="col-lg-4">
+    {{partial "about"}}
+  </div>
+</div>

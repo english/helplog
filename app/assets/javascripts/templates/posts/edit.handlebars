@@ -1,0 +1,48 @@
+<div class="row">
+  <div role="main" class="col-lg-6">
+    <form class="form-horizontal">
+      <fieldset>
+        <div class="row">
+          <div class="col-offset-2 col-lg-10">
+            <legend>Edit Post</legend>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label {{bindAttr for="titleField.elementId"}} class="col-lg-2 control-label">Title</label>
+
+          <div class="col-lg-10">
+            {{view Ember.TextField valueBinding='title' cols="30" viewName="titleField" class="form-control" placeholder="Title"}}
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label {{bindAttr for="bodyField.elementId"}} class="col-lg-2 control-label">Body</label>
+          <div class="col-lg-10">
+            {{view Ember.TextArea valueBinding='body' cols="50" rows="30" class="form-control" placeholder="Body"}}
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-offset-2 col-lg-10">
+            <div class="checkbox">
+              <label {{bindAttr for="publishedField.elementId"}}>Published?</label>
+              {{view Ember.Checkbox checkedBinding="published" viewName="publishedField"}}
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-offset-2 col-lg-10">
+            <button {{action 'save' model }} type="button" class="btn btn-primary">Save</button>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+
+  <div class="col-lg-6">
+    <h1>{{title}}</h1>
+    <div class="body">{{markdown body}}</div>
+  </div>
+</div>

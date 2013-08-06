@@ -4,8 +4,8 @@
       <%= link_to post.title, post %>
     </h1>
     
-    <div class="content">
-      <%= raw ::Redcarpet::Markdown.new(::Redcarpet::Render::XHTML).render(post.content) %>
+    <div class="body">
+      <%= raw ::Redcarpet::Markdown.new(::Redcarpet::Render::XHTML).render(post.body) %>
     </div>
 
     <div class="actions show-when-logged-in hidden">

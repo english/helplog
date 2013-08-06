@@ -16,4 +16,10 @@
 //= require bootstrap
 //= require underscore
 //= require underscore.string
+//= require markdown
+//= require handlebars
+//= require ember
+//= require ember-data
+//= require_self
+//= require helplog
 //= require_tree .
