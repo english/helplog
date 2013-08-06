@@ -3,21 +3,25 @@
     <h1>Latest Posts</h1>
 
     <section class="published-posts">
-      {{#each model}}
+      {{#each post in model}}
         <article class="post">
           <h1 class="title">
-            {{#linkTo 'post' this}} {{title}} {{/linkTo}}
+            {{#linkTo 'post' post}} {{post.title}} {{/linkTo}}
           </h1>
-          <div class="body">{{truncatedMarkdown body}}</div>
-          {{#linkTo 'posts.edit' this class="btn btn-warning"}} Edit {{/linkTo}}
-          <a {{action 'delete' this}} class="btn btn-danger">Delete</a>
+          <div class="body">{{truncatedMarkdown post.body}}</div>
+          {{#if session.active}}
+            {{#linkTo 'posts.edit' post class="btn btn-warning"}} Edit {{/linkTo}}
+            <a {{action 'delete' post}} class="btn btn-danger">Delete</a>
+          {{/if}}
         </article>
       {{/each}}
     </section>
 
     <hr />
 
-    {{#linkTo 'posts.new' class="btn btn-primary"}} New Post {{/linkTo}}
+    {{#if session.active}}
+      {{#linkTo 'posts.new' class="btn btn-primary"}} New Post {{/linkTo}}
+    {{/if}}
   </div>
 
   <div class="col-lg-4">

@@ -2,8 +2,10 @@
   <div role="main" class="col-lg-8">
     <h1>{{title}}</h1>
     <div class="body">{{markdown body}}</div>
-    {{#linkTo 'posts.edit' this class="btn btn-warning"}}Edit{{/linkTo}}
-    <button {{action 'delete' model}} type="button" class="btn btn-danger">Delete</button>
+    {{#if session.active}}
+      {{#linkTo 'posts.edit' this class="btn btn-warning"}}Edit{{/linkTo}}
+      <button {{action 'delete' model}} type="button" class="btn btn-danger">Delete</button>
+    {{/if}}
   </div>
 
   <div class="col-lg-4">
