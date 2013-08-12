@@ -8,11 +8,9 @@ class SessionsController < ApplicationController
     user = User.find_by_email(params[:session][:email])
 
     if user && user.authenticate(params[:session][:password])
-      puts 'in'
       session[:current_user] = user.id
       render json: { session: { id: 'current', active: true } }
     else
-      puts 'out'
       render json: {
         errors: {
           email: 'invalid email or password'

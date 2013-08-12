@@ -1,6 +1,7 @@
 <div class="row">
   <div role="main" class="col-lg-8">
     <h1>Latest Posts</h1>
+    <h2>{{controllers.application.session.active}}</h2>
 
     <section class="published-posts">
       {{#each post in model}}
@@ -9,7 +10,7 @@
             {{#linkTo 'post' post}} {{post.title}} {{/linkTo}}
           </h1>
           <div class="body">{{truncatedMarkdown post.body}}</div>
-          {{#if session.active}}
+          {{#if controllers.application.session.active}}
             {{#linkTo 'posts.edit' post class="btn btn-warning"}} Edit {{/linkTo}}
             <a {{action 'delete' post}} class="btn btn-danger">Delete</a>
           {{/if}}
@@ -19,7 +20,7 @@
 
     <hr />
 
-    {{#if session.active}}
+    {{#if controllers.application.session.active}}
       {{#linkTo 'posts.new' class="btn btn-primary"}} New Post {{/linkTo}}
     {{/if}}
   </div>

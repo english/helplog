@@ -5,6 +5,7 @@ gem 'rails', '4.0.0'
 
 group :development do
   gem 'sqlite3'
+  gem 'pry'
 end
 
 group :test do

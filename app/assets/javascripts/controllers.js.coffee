@@ -1,24 +1,14 @@
-Helplog.ApplicationController = Ember.Controller.extend
-  logout: ->
-    @get('session').on 'didDelete', ->
-      @get('session').set('active', false)
-      @transitionToRoute 'posts'
-
-    @get('session').deleteRecord()
-    @get('store').commit()
-  sessionActive: (->
-    @get('session.active')
-  ).property('session.active')
-
 Helplog.PostDeleteable = Ember.Mixin.create
   delete: (post) ->
     post.on 'didDelete', this, -> @transitionToRoute 'posts'
     post.deleteRecord()
     @get('store').commit()
 
-Helplog.PostsController = Ember.ArrayController.extend Helplog.PostDeleteable
+Helplog.PostsController = Ember.ArrayController.extend Helplog.PostDeleteable,
+  needs: ['application']
 
-Helplog.PostController = Ember.ObjectController.extend Helplog.PostDeleteable
+Helplog.PostController = Ember.ObjectController.extend Helplog.PostDeleteable,
+  needs: ['application']
 
 Helplog.PostsNewController = Ember.ObjectController.extend
   create: (post) ->
@@ -31,6 +21,12 @@ Helplog.PostsEditController = Ember.ObjectController.extend
     @get('store').commit()
 
 Helplog.SessionsNewController = Ember.ObjectController.extend
-  login: (session) ->
-    session.on 'didCreate', this, -> @transitionToRoute 'posts'
-    @get('store').commit()
+  needs: ['application']
+  login: ->
+    $.post('/sessions',
+      session:
+        email: @get 'content.email'
+        password: @get 'content.password'
+    ).then =>
+      @set 'controllers.application.session.active', true
+      @transitionToRoute 'index'

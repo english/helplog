@@ -1,4 +1,4 @@
-<form class="form-horizontal">
+<form class="form-horizontal" {{action login on="submit"}}>
   <fieldset>
     <div class="row">
       <div class="col-offset-2 col-lg-5">
@@ -22,7 +22,7 @@
 
     <div class="form-group">
       <div class="col-offset-2 col-lg-5">
-        <a {{action 'login' model}} class='btn btn-success'>Login</a>
+        <input type="submit" value="Login" class='btn btn-success' />
       </div>
     </div>
   </fieldset>

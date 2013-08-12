@@ -1,36 +1,40 @@
+Helplog.Router.reopen
+  location: 'history'
+  rootURL: '/'
+
 Helplog.Router.map ->
   @resource 'posts'
-  @route    'posts.new',    path: '/posts/new'
-  @resource 'post',         path: '/posts/:post_id'
-  @route    'posts.edit',   path: '/posts/:post_id/edit'
-  @route    'sessions.new', path: '/sessions/new'
+  @route    'posts.new',        path: '/posts/new'
+  @resource 'post',             path: '/posts/:post_id'
+  @route    'posts.edit',       path: '/posts/:post_id/edit'
+  @route    'sessions.new',     path: '/sessions/new'
+  @route    'sessions.destroy', path: '/sessions/destroy'
+
+Helplog.ApplicationRoute = Ember.Route.extend
+  setupController: ->
+    @controller.set 'session', Helplog.Session.find('current')
 
 Helplog.IndexRoute = Ember.Route.extend
   redirect: -> @transitionTo 'posts'
 
-Helplog.SetSession = Ember.Mixin.create
-  setupController: (controller, model) ->
-    controller.set 'content', model
-    controller.set 'session', Helplog.Session.find('current')
-
-Helplog.ApplicationRoute = Ember.Route.extend Helplog.SetSession
-
-Helplog.PostsRoute = Ember.Route.extend Helplog.SetSession,
+Helplog.PostsRoute = Ember.Route.extend
+  needs: ['application']
   model: -> Helplog.Post.find()
 
-Helplog.PostsEditRoute = Ember.Route.extend
-  enter: -> 
-    Helplog.Session.find('current').then (session) =>
-      @transitionTo 'posts' unless session.get('active')
-
 Helplog.PostsNewRoute = Ember.Route.extend
-  enter: -> 
-    Helplog.Session.find('current').then (session) =>
-      @transitionTo 'posts' unless session.get('active')
   model: -> Helplog.Post.createRecord()
 
-Helplog.PostRoute = Ember.Route.extend Helplog.SetSession,
+Helplog.PostRoute = Ember.Route.extend
   model: (params) -> Helplog.Post.find params.post_id
 
 Helplog.SessionsNewRoute = Ember.Route.extend
   model: -> Helplog.Session.createRecord()
+
+Helplog.SessionsDestroyRoute = Ember.Route.extend
+  redirect: ->
+    $.ajax
+      url: '/sessions/current'
+      type: 'DELETE'
+      success: => @controllerFor('application').set('session.active', false)
+
+    @transitionTo('posts')
