@@ -22,11 +22,12 @@ Helplog.PostsEditController = Ember.ObjectController.extend
 
 Helplog.SessionsNewController = Ember.ObjectController.extend
   needs: ['application']
+  hasErrors: false
   login: ->
-    $.post('/sessions',
-      session:
-        email: @get 'content.email'
-        password: @get 'content.password'
-    ).then =>
-      @set 'controllers.application.session.active', true
-      @transitionToRoute 'index'
+    $.post('/sessions', { session: @get('content').toJSON() }).then(
+      =>
+        @set 'hasErrors', false
+        @set 'controllers.application.session.active', true
+        @transitionToRoute 'index'
+      => @set 'hasErrors', true
+    )

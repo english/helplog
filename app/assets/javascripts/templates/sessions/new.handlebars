@@ -1,8 +1,16 @@
 <form class="form-horizontal" {{action login on="submit"}}>
-  <fieldset>
+  <fieldset {{bindAttr class="hasErrors"}}>
     <div class="row">
       <div class="col-offset-2 col-lg-5">
         <legend>Login</legend>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-offset-2 col-lg-5">
+        {{#if hasErrors}}
+          <p class="text-danger">Invalid email or password.</p>
+        {{/if}}
       </div>
     </div>
 
