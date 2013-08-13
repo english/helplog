@@ -11,14 +11,12 @@ Helplog.Router.map ->
   @route    'sessions.destroy', path: '/sessions/destroy'
 
 Helplog.ApplicationRoute = Ember.Route.extend
-  setupController: ->
-    @controller.set 'session', Helplog.Session.find('current')
+  setupController: -> @controller.set 'session', Helplog.Session.find('current')
 
 Helplog.IndexRoute = Ember.Route.extend
   redirect: -> @transitionTo 'posts'
 
 Helplog.PostsRoute = Ember.Route.extend
-  needs: ['application']
   model: -> Helplog.Post.find()
 
 Helplog.PostsNewRoute = Ember.Route.extend
@@ -28,6 +26,10 @@ Helplog.PostRoute = Ember.Route.extend
   model: (params) -> Helplog.Post.find params.post_id
 
 Helplog.SessionsNewRoute = Ember.Route.extend
+  redirect: ->
+    Helplog.Session.find('current').then (session) =>
+      @transitionTo 'index' if session.get('active')
+
   model: -> Helplog.Session.createRecord()
 
 Helplog.SessionsDestroyRoute = Ember.Route.extend
