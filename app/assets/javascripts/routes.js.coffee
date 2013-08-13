@@ -19,18 +19,25 @@ Helplog.IndexRoute = Ember.Route.extend
 Helplog.PostsRoute = Ember.Route.extend
   model: -> Helplog.Post.find()
 
-Helplog.PostsNewRoute = Ember.Route.extend
+Helplog.AuthenticatedRoute = Ember.Route.extend
+  redirect: ->
+    Helplog.Session.find('current').then (session) =>
+      @transitionTo 'index' unless session.get 'active'
+
+Helplog.PostsNewRoute = Helplog.AuthenticatedRoute.extend
   model: -> Helplog.Post.createRecord()
+
+Helplog.PostsEditRoute = Helplog.AuthenticatedRoute.extend
+  model: (params) -> Helplog.Post.find params.post_id
 
 Helplog.PostRoute = Ember.Route.extend
   model: (params) -> Helplog.Post.find params.post_id
 
 Helplog.SessionsNewRoute = Ember.Route.extend
+  model: -> Helplog.Session.createRecord()
   redirect: ->
     Helplog.Session.find('current').then (session) =>
       @transitionTo 'index' if session.get('active')
-
-  model: -> Helplog.Session.createRecord()
 
 Helplog.SessionsDestroyRoute = Ember.Route.extend
   redirect: ->

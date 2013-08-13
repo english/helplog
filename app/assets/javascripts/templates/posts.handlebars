@@ -16,9 +16,8 @@
       {{/each}}
     </section>
 
-    <hr />
-
     {{#if controllers.application.session.active}}
+      <hr />
       {{#linkTo 'posts.new' class="btn btn-primary"}}New Post{{/linkTo}}
     {{/if}}
   </div>
