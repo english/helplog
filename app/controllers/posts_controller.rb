@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   respond_to :json
+  before_action :authenticate, only: %i( create update destroy )
 
   def index
     respond_with Post.all
@@ -25,5 +26,9 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :body, :published)
+  end
+
+  def authenticate
+    render json: { errors: 'forbidden' }, status: :forbidden unless logged_in?
   end
 end

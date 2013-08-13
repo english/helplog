@@ -12,9 +12,7 @@ class SessionsController < ApplicationController
       render json: { session: { id: 'current', active: true } }
     else
       render json: {
-        errors: {
-          email: 'invalid email or password'
-        }
+        errors: { email: 'invalid email or password' }
       }, status: :unprocessable_entity
     end
   end

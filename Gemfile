@@ -12,6 +12,7 @@ group :test do
   gem 'sqlite3'
   gem 'rake'
   gem 'capybara'
+  gem 'selenium-webdriver'
 end
 
 group :production do

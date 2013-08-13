@@ -1,6 +1,6 @@
 Helplog.PostDeleteable = Ember.Mixin.create
   delete: (post) ->
-    post.on 'didDelete', this, -> @transitionToRoute 'posts'
+    post.on 'didDelete', this, -> @transitionToRoute 'index'
     post.deleteRecord()
     @get('store').commit()
 
@@ -12,12 +12,12 @@ Helplog.PostController = Ember.ObjectController.extend Helplog.PostDeleteable,
 
 Helplog.PostsNewController = Ember.ObjectController.extend
   create: (post) ->
-    post.on 'didCreate', this, -> @transitionToRoute 'post', post
+    post.on 'didCreate', this, -> @transitionToRoute 'index'
     @get('store').commit()
 
 Helplog.PostsEditController = Ember.ObjectController.extend
   save: (post) ->
-    post.on 'didUpdate', this, -> @transitionToRoute 'post', post
+    post.on 'didUpdate', this, -> @transitionToRoute 'index'
     @get('store').commit()
 
 Helplog.SessionsNewController = Ember.ObjectController.extend

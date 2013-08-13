@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   private
 
   def render_index_view
+    return if request.format == Mime::JSON
     return if request.xhr?
 
     respond_to do |format|
