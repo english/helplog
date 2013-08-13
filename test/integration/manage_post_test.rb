@@ -2,7 +2,7 @@ require 'test_helper'
 
 class ManagePostTest < ActionDispatch::IntegrationTest
   include Capybara::DSL
-  Capybara.current_driver = :selenium
+  Capybara.current_driver = :poltergeist
 
   test "Added posts appear on the home page once published" do
     visit '/'

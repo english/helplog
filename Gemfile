@@ -12,7 +12,7 @@ group :test do
   gem 'sqlite3'
   gem 'rake'
   gem 'capybara'
-  gem 'selenium-webdriver'
+  gem 'poltergeist', require: 'capybara/poltergeist'
 end
 
 group :production do
