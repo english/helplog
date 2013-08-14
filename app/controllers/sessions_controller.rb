@@ -22,4 +22,7 @@ class SessionsController < ApplicationController
       session: { id: 'current', active: logged_in? }
     }
   end
+
+  def new
+  end
 end

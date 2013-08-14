@@ -22,6 +22,9 @@ class PostsController < ApplicationController
     respond_with Post.destroy(params[:id])
   end
 
+  def edit
+  end
+
   private
 
   def post_params
