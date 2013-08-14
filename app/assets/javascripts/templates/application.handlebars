@@ -17,7 +17,7 @@
     <div class="col-lg-2">
       <p class="lead text-center text-muted">
         <small>
-          {{#if session.active}}
+          {{#if isLoggedIn}}
             {{#linkTo 'sessions.destroy'}}Logout{{/linkTo}}
           {{else}}
             {{#linkTo 'sessions.new'}}Login{{/linkTo}}

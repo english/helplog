@@ -1,3 +1,8 @@
+Helplog.ApplicationController = Ember.Controller.extend
+  isLoggedIn: (->
+    @get('session.active')
+  ).property('session.active')
+
 Helplog.PostDeleteable = Ember.Mixin.create
   delete: (post) ->
     post.on 'didDelete', this, -> @transitionToRoute 'index'
