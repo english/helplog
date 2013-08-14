@@ -11,7 +11,8 @@ Helplog.Router.map ->
   @route    'sessions.destroy', path: '/sessions/destroy'
 
 Helplog.ApplicationRoute = Ember.Route.extend
-  setupController: -> @controller.set 'session', Helplog.Session.find('current')
+  setupController: ->
+    Helplog.Session.find('current').then (session) -> Helplog.set 'isLoggedIn', session.active
 
 Helplog.IndexRoute = Ember.Route.extend
   redirect: -> @transitionTo 'posts'
@@ -20,9 +21,7 @@ Helplog.PostsRoute = Ember.Route.extend
   model: -> Helplog.Post.find()
 
 Helplog.AuthenticatedRoute = Ember.Route.extend
-  redirect: ->
-    Helplog.Session.find('current').then (session) =>
-      @transitionTo 'index' unless session.get 'active'
+  redirect: -> @transitionTo 'index' unless Helplog.get('isLoggedIn')
 
 Helplog.PostsNewRoute = Helplog.AuthenticatedRoute.extend
   model: -> Helplog.Post.createRecord()
@@ -35,15 +34,13 @@ Helplog.PostRoute = Ember.Route.extend
 
 Helplog.SessionsNewRoute = Ember.Route.extend
   model: -> Helplog.Session.createRecord()
-  redirect: ->
-    Helplog.Session.find('current').then (session) =>
-      @transitionTo 'index' if session.get('active')
+  redirect: -> @transitionTo 'index' if Helplog.get('isLoggedIn')
 
 Helplog.SessionsDestroyRoute = Ember.Route.extend
   redirect: ->
     $.ajax
       url: '/sessions/current'
       type: 'DELETE'
-      success: => @controllerFor('application').set('session.active', false)
+      success: => Helplog.set('isLoggedIn', false)
 
     @transitionTo('posts')

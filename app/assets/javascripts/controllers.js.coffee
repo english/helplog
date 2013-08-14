@@ -1,7 +1,5 @@
 Helplog.ApplicationController = Ember.Controller.extend
-  isLoggedIn: (->
-    @get('session.active')
-  ).property('session.active')
+  isLoggedInBinding: 'Helplog.isLoggedIn'
 
 Helplog.PostDeleteable = Ember.Mixin.create
   delete: (post) ->
@@ -11,9 +9,11 @@ Helplog.PostDeleteable = Ember.Mixin.create
 
 Helplog.PostsController = Ember.ArrayController.extend Helplog.PostDeleteable,
   needs: ['application']
+  isLoggedInBinding: 'controllers.application.isLoggedIn'
 
 Helplog.PostController = Ember.ObjectController.extend Helplog.PostDeleteable,
-  needs: ['application']
+  isLoggedIn: null
+  isLoggedInBinding: 'Helplog.isLoggedIn'
 
 Helplog.PostsNewController = Ember.ObjectController.extend
   create: (post) ->
@@ -26,13 +26,12 @@ Helplog.PostsEditController = Ember.ObjectController.extend
     @get('store').commit()
 
 Helplog.SessionsNewController = Ember.ObjectController.extend
-  needs: ['application']
   hasError: false
   login: ->
     $.post('/sessions', { session: @get('content').toJSON() }).then(
       =>
+        Helplog.set('isLoggedIn', true)
         @set 'hasError', false
-        @set 'controllers.application.session.active', true
         @transitionToRoute 'index'
       => @set 'hasError', true
     )

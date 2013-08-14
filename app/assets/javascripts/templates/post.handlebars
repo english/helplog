@@ -2,7 +2,7 @@
   <div role="main" class="col-lg-8">
     <h1>{{title}}</h1>
     <div class="body">{{markdown body}}</div>
-    {{#if controllers.application.isLoggedIn}}
+    {{#if isLoggedIn}}
       {{#linkTo 'posts.edit' this class="btn btn-warning"}}Edit{{/linkTo}}
       <button {{action 'delete' model}} type="button" class="btn btn-danger">Delete</button>
     {{/if}}

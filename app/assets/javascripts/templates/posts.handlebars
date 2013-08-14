@@ -8,7 +8,7 @@
           <h1 class="title">{{#linkTo 'post' post}}{{post.title}}{{/linkTo}}</h1>
           <div class="body">{{truncatedMarkdown post.body}}</div>
 
-          {{#if controllers.application.isLoggedIn}}
+          {{#if isLoggedIn}}
             {{#linkTo 'posts.edit' post class="btn btn-warning"}}Edit{{/linkTo}}
             <a {{action 'delete' post}} class="btn btn-danger">Delete</a>
           {{/if}}
@@ -16,7 +16,7 @@
       {{/each}}
     </section>
 
-    {{#if controllers.application.session.active}}
+    {{#if isLoggedIn}}
       <hr />
       {{#linkTo 'posts.new' class="btn btn-primary"}}New Post{{/linkTo}}
     {{/if}}
