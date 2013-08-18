@@ -18,5 +18,6 @@ after_success:
   - heroku keys:clear
   - yes | heroku keys:add
   - yes | git push heroku master
+  - heroku run rake db:migrate
 branches:
   only: master
