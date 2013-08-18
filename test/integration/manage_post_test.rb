@@ -14,6 +14,7 @@ class ManagePostTest < ActionDispatch::IntegrationTest
 
     click_link 'New Post'
     fill_in 'Title', with: 'Test Blog Post Title'
+    fill_in 'Intro', with: 'Test introduction.'
     fill_in 'Body', with: 'Some test content.'
     click_button 'Save'
 
@@ -22,7 +23,7 @@ class ManagePostTest < ActionDispatch::IntegrationTest
     sleep 0.25
 
     refute page.has_content?('Test Blog Post Title')
-    refute page.has_content?('Some test content.')
+    refute page.has_content?('Test introduction.')
 
     click_link 'Login'
 
@@ -42,6 +43,6 @@ class ManagePostTest < ActionDispatch::IntegrationTest
     sleep 0.25
 
     assert page.has_content?('Test Blog Post Title')
-    assert page.has_content?('Some test content.')
+    assert page.has_content?('Test introduction.')
   end
 end

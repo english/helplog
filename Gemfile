@@ -13,6 +13,7 @@ group :test do
   gem 'rake'
   gem 'capybara'
   gem 'poltergeist', require: 'capybara/poltergeist'
+  gem 'selenium-webdriver', require: false
 end
 
 group :production do

@@ -17,6 +17,14 @@
         </div>
 
         <div class="form-group">
+          <label {{bindAttr for="view.introField.elementId"}} class="col-lg-2 control-label">Intro</label>
+
+          <div class="col-lg-10">
+            {{view Ember.TextArea valueBinding='intro' cols="30" rows="5" viewName="introField" class="form-control" placeholder="Short intro to appear on post listing"}}
+          </div>
+        </div>
+
+        <div class="form-group">
           <label {{bindAttr for="view.bodyField.elementId"}} class="col-lg-2 control-label">Body</label>
           <div class="col-lg-10">
             {{view Ember.TextArea valueBinding='body' cols="50" rows="30" viewName="bodyField" class="form-control" placeholder="Body"}}

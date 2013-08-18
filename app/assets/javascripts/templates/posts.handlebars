@@ -2,11 +2,11 @@
   <div role="main" class="col-lg-8">
     <h1>Latest Posts</h1>
 
-    <section class="published-posts">
+    <section class="posts">
       {{#each post in posts}}
         <article class="post">
           <h1 class="title">{{#linkTo 'post' post}}{{post.title}}{{/linkTo}}</h1>
-          <div class="body">{{truncatedMarkdown post.body}}</div>
+          <div class="intro">{{markdown post.intro}}</div>
 
           {{#if isLoggedIn}}
             {{#linkTo 'posts.edit' post class="btn btn-warning"}}Edit{{/linkTo}}
