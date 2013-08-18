@@ -18,4 +18,5 @@ class ApplicationController < ActionController::Base
   def logged_in?
     session[:current_user] != nil
   end
+  helper_method :logged_in?
 end

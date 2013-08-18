@@ -8,8 +8,7 @@ Helplog.PostDeleteable = Ember.Mixin.create
     @get('store').commit()
 
 Helplog.PostsController = Ember.ArrayController.extend Helplog.PostDeleteable,
-  needs: ['application']
-  isLoggedInBinding: 'controllers.application.isLoggedIn'
+  isLoggedInBinding: 'Helplog.isLoggedIn'
   posts: (->
     if @get('isLoggedIn') then @get('content') else @get('publishedPosts')
   ).property 'isLoggedIn', 'content', 'publishedPosts'
@@ -36,7 +35,7 @@ Helplog.SessionsNewController = Ember.ObjectController.extend
   login: ->
     $.post('/sessions', { session: @get('content').toJSON() }).then(
       =>
-        Helplog.set('isLoggedIn', true)
+        Helplog.set 'isLoggedIn', true
         @set 'hasError', false
         @transitionToRoute 'index'
       => @set 'hasError', true
