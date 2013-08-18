@@ -14,3 +14,10 @@
  */
 
 body { padding-bottom: 100px; }
+div[role=main] { margin-bottom: 50px; }
+
+@media all and (min-width: 992px) {
+  div[role=main] {
+    margin-bottom: 0;
+  }
+}
