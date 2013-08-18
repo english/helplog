@@ -12,7 +12,8 @@ Helplog.Router.map ->
 
 Helplog.ApplicationRoute = Ember.Route.extend
   setupController: ->
-    Helplog.Session.find('current').then (session) -> Helplog.set 'isLoggedIn', session.active
+    Helplog.Session.find('current').then (session) ->
+      Helplog.set 'isLoggedIn', session.get('active')
 
 Helplog.IndexRoute = Ember.Route.extend
   redirect: -> @transitionTo 'posts'
@@ -21,7 +22,9 @@ Helplog.PostsRoute = Ember.Route.extend
   model: -> Helplog.Post.find()
 
 Helplog.AuthenticatedRoute = Ember.Route.extend
-  redirect: -> @transitionTo 'index' unless Helplog.get('isLoggedIn')
+  redirect: ->
+    $.getJSON '/sessions/current', (json) =>
+      @transitionTo 'index' unless json.session.active
 
 Helplog.PostsNewRoute = Helplog.AuthenticatedRoute.extend
   model: -> Helplog.Post.createRecord()
@@ -34,7 +37,8 @@ Helplog.PostRoute = Ember.Route.extend
 
 Helplog.SessionsNewRoute = Ember.Route.extend
   model: -> Helplog.Session.createRecord()
-  redirect: -> @transitionTo 'index' if Helplog.get('isLoggedIn')
+  redirect: ->
+    @transitionTo 'index' if Helplog.get('isLoggedIn')
 
 Helplog.SessionsDestroyRoute = Ember.Route.extend
   redirect: ->
