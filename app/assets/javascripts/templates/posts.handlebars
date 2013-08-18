@@ -3,7 +3,7 @@
     <h1>Latest Posts</h1>
 
     <section class="published-posts">
-      {{#each post in model}}
+      {{#each post in posts}}
         <article class="post">
           <h1 class="title">{{#linkTo 'post' post}}{{post.title}}{{/linkTo}}</h1>
           <div class="body">{{truncatedMarkdown post.body}}</div>
