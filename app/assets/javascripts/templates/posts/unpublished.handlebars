@@ -1,12 +1,10 @@
 <div class="row">
   <div role="main" class="col-lg-8">
-    <h1>Latest Posts</h1>
-    {{#if isLoggedIn}}
-      <h3>{{#linkTo 'posts.unpublished'}}Unpublished Posts{{/linkTo}}</h3>
-    {{/if}}
+    <h1>Unpublished Posts</h1>
+    <h3>{{#linkTo 'posts'}}Published Posts{{/linkTo}}</h3>
 
     <section class="posts">
-      {{#each post in publishedPosts}}
+      {{#each post in unpublishedPosts}}
         <article class="post">
           <h2 class="title">{{#linkTo 'post' post}}{{post.title}}{{/linkTo}}</h2>
           <div class="intro">{{markdown post.intro}}</div>
