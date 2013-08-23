@@ -12,10 +12,7 @@ Helplog.PostsController = Ember.ArrayController.extend Helplog.PostDeleteable,
   publishedPosts: (->
     @get('content').filterProperty('published', true)
   ).property 'content.@each.published'
-
-Helplog.PostsUnpublishedController = Ember.ArrayController.extend Helplog.PostDeleteable,
-  isLoggedInBinding: 'Helplog.isLoggedIn'
-  unpublishedPosts: (->
+  draftPosts: (->
     @get('content').filterProperty('published', false)
   ).property 'content.@each.published'
 
