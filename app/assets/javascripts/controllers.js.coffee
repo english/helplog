@@ -1,5 +1,15 @@
 Helplog.ApplicationController = Ember.Controller.extend
   isLoggedInBinding: 'Helplog.isLoggedIn'
+  showLoginForm: -> @set 'isLoggingIn', true
+  cancel: -> @set 'isLoggingIn', false
+  login: ->
+    $.post('/sessions', { session: @get('session').toJSON() }).then(
+      =>
+        Helplog.set 'isLoggedIn', true
+        @set 'hasError', false
+        @set 'isLoggingIn', false
+      => @set 'hasError', true
+    )
 
 Helplog.PostDeleteable = Ember.Mixin.create
   delete: (post) ->

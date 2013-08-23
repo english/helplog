@@ -20,12 +20,53 @@
           {{#if isLoggedIn}}
             {{#linkTo 'sessions.destroy'}}Logout{{/linkTo}}
           {{else}}
-            {{#linkTo 'sessions.new'}}Login{{/linkTo}}
+            <a href="#" {{action 'showLoginForm'}}>Login</a>
           {{/if}}
         </small>
       </p>
     </div>
   </div>
+
+  {{#if isLoggingIn}}
+    <form {{bindAttr class="hasError :form-horizontal"}} {{action login on="submit"}}>
+      <fieldset>
+        <div class="row">
+          <div class="col-offset-2 col-lg-5">
+            <legend>Login</legend>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-offset-2 col-lg-5">
+            {{#if hasError}}
+              <p class="text-danger">Invalid email or password.</p>
+            {{/if}}
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-lg-2 control-label">Email</label>
+          <div class="col-lg-5">
+            {{view Ember.TextField valueBinding="session.email" name="Email" cols="30" class="form-control" type="email" placeholder="someone@example.com"}}
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-lg-2 control-label">Password</label>
+          <div class="col-lg-5">
+            {{view Ember.TextField valueBinding="session.password" name="Password" cols="30" class="form-control" type="password" placeholder="superSecre1Passw0Rd"}}
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-offset-2 col-lg-5">
+            <input type="submit" value="Log in" class='btn btn-success' />
+            <a href="#" class="btn btn-danger" {{action 'cancel'}}>Cancel</a>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  {{/if}}
 
   {{outlet}}
 </div>

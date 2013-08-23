@@ -7,8 +7,11 @@ Helplog.Router.map ->
   @route    'posts.new',        path: '/posts/new'
   @resource 'post',             path: '/posts/:post_id'
   @route    'posts.edit',       path: '/posts/:post_id/edit'
-  @route    'sessions.new',     path: '/sessions/new'
   @route    'sessions.destroy', path: '/sessions/destroy'
+
+Helplog.ApplicationRoute = Ember.Route.extend
+  setupController: (controller) ->
+    controller.set 'session', Helplog.Session.createRecord()
 
 Helplog.IndexRoute = Ember.Route.extend
   redirect: -> @transitionTo 'posts'
@@ -39,4 +42,3 @@ Helplog.SessionsDestroyRoute = Ember.Route.extend
       type: 'DELETE'
       success: -> Helplog.set('isLoggedIn', false)
     @transitionTo('posts')
-
