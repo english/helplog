@@ -3,23 +3,25 @@
     <h1>Latest Posts</h1>
 
     {{#if isLoggedIn}}
-      <h2>Draft Posts</h2>
+      {{#if hasDraftPosts}}
+        <h2>Draft Posts</h2>
 
-      <section class="posts drafts">
-        {{#each post in draftPosts}}
-          <article class="post">
-            <h2 class="title">{{#linkTo 'post' post}}{{post.title}}{{/linkTo}}</h2>
-            <div class="intro">{{markdown post.intro}}</div>
+        <section class="posts drafts">
+          {{#each post in draftPosts}}
+            <article class="post">
+              <h2 class="title">{{#linkTo 'post' post}}{{post.title}}{{/linkTo}}</h2>
+              <div class="intro">{{markdown post.intro}}</div>
 
-            {{#linkTo 'posts.edit' post class="btn btn-warning"}}Edit{{/linkTo}}
-            <a {{action 'delete' post}} class="btn btn-danger">Delete</a>
-          </article>
-        {{/each}}
-      </section>
+              {{#linkTo 'posts.edit' post class="btn btn-warning"}}Edit{{/linkTo}}
+              <a {{action 'delete' post}} class="btn btn-danger">Delete</a>
+            </article>
+          {{/each}}
+        </section>
 
-      <hr />
+        <hr />
 
-      <h2>Published Posts</h2>
+        <h2>Published Posts</h2>
+      {{/if}}
     {{/if}}
 
     <section class="posts">

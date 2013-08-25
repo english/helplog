@@ -18,7 +18,7 @@
       <p class="lead text-center text-muted">
         <small>
           {{#if isLoggedIn}}
-            {{#linkTo 'sessions.destroy'}}Logout{{/linkTo}}
+            <a href="#" {{action 'logout'}}>Logout</a>
           {{else}}
             <a href="#" {{action 'showLoginForm'}}>Login</a>
           {{/if}}
