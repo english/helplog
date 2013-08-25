@@ -10,8 +10,7 @@ Helplog.Router.map ->
   @route    'sessions.destroy', path: '/sessions/destroy'
 
 Helplog.ApplicationRoute = Ember.Route.extend
-  setupController: (controller) ->
-    controller.set 'session', Helplog.Session.createRecord()
+  setupController: -> @controllerFor('login').set 'content', Helplog.Session.createRecord()
 
 Helplog.IndexRoute = Ember.Route.extend
   redirect: -> @transitionTo 'posts'

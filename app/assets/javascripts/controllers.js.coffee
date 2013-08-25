@@ -1,13 +1,16 @@
 Helplog.ApplicationController = Ember.Controller.extend
   isLoggedInBinding: 'Helplog.isLoggedIn'
   showLoginForm: -> @set 'isLoggingIn', true
-  cancel: -> @set 'isLoggingIn', false
+
+Helplog.LoginController = Ember.ObjectController.extend
+  needs: 'application'
+  cancel: -> @set 'controllers.application.isLoggingIn', false
   login: ->
-    $.post('/sessions', { session: @get('session').toJSON() }).then(
+    $.post('/sessions', { session: @get('content').toJSON() }).then(
       =>
         Helplog.set 'isLoggedIn', true
         @set 'hasError', false
-        @set 'isLoggingIn', false
+        @set 'controllers.application.isLoggingIn', false
       => @set 'hasError', true
     )
 
@@ -39,14 +42,3 @@ Helplog.PostsEditController = Ember.ObjectController.extend
   save: (post) ->
     post.on 'didUpdate', this, -> @transitionToRoute 'index'
     @get('store').commit()
-
-Helplog.SessionsNewController = Ember.ObjectController.extend
-  hasError: false
-  login: ->
-    $.post('/sessions', { session: @get('content').toJSON() }).then(
-      =>
-        Helplog.set 'isLoggedIn', true
-        @set 'hasError', false
-        @transitionToRoute 'index'
-      => @set 'hasError', true
-    )
