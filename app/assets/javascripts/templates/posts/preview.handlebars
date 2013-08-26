@@ -1,0 +1,9 @@
+<article class="post">
+  <h2 class="title">{{#linkTo 'post' model}}{{title}}{{/linkTo}}</h2>
+  <div class="intro">{{markdown intro}}</div>
+
+  {{#if isLoggedIn}}
+    {{#linkTo 'posts.edit' model class="btn btn-warning"}}Edit{{/linkTo}}
+    <a {{action 'delete' model}} class="btn btn-danger">Delete</a>
+  {{/if}}
+</article>

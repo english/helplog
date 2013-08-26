@@ -8,13 +8,7 @@
 
         <section class="posts drafts">
           {{#each post in draftPosts}}
-            <article class="post">
-              <h2 class="title">{{#linkTo 'post' post}}{{post.title}}{{/linkTo}}</h2>
-              <div class="intro">{{markdown post.intro}}</div>
-
-              {{#linkTo 'posts.edit' post class="btn btn-warning"}}Edit{{/linkTo}}
-              <a {{action 'delete' post}} class="btn btn-danger">Delete</a>
-            </article>
+            {{render 'posts/preview' post}}
           {{/each}}
         </section>
 
@@ -26,15 +20,7 @@
 
     <section class="posts">
       {{#each post in publishedPosts}}
-        <article class="post">
-          <h2 class="title">{{#linkTo 'post' post}}{{post.title}}{{/linkTo}}</h2>
-          <div class="intro">{{markdown post.intro}}</div>
-
-          {{#if isLoggedIn}}
-            {{#linkTo 'posts.edit' post class="btn btn-warning"}}Edit{{/linkTo}}
-            <a {{action 'delete' post}} class="btn btn-danger">Delete</a>
-          {{/if}}
-        </article>
+        {{render 'posts/preview' post}}
       {{/each}}
     </section>
 

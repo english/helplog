@@ -21,7 +21,7 @@ Helplog.PostDeleteable = Ember.Mixin.create
     post.deleteRecord()
     @get('store').commit()
 
-Helplog.PostsController = Ember.ArrayController.extend Helplog.PostDeleteable,
+Helplog.PostsController = Ember.ArrayController.extend
   isLoggedInBinding: 'Helplog.isLoggedIn'
   publishedPosts: (->
     @get('content').filterProperty('published', true)
@@ -34,6 +34,10 @@ Helplog.PostsController = Ember.ArrayController.extend Helplog.PostDeleteable,
   ).property 'content.@each.published'
 
 Helplog.PostController = Ember.ObjectController.extend Helplog.PostDeleteable,
+  isLoggedIn: null
+  isLoggedInBinding: 'Helplog.isLoggedIn'
+
+Helplog.PostsPreviewController = Ember.ObjectController.extend Helplog.PostDeleteable,
   isLoggedIn: null
   isLoggedInBinding: 'Helplog.isLoggedIn'
 
