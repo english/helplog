@@ -4,9 +4,9 @@ Helplog.Router.reopen
 
 Helplog.Router.map ->
   @resource 'posts'
-  @route    'posts.new',        path: '/posts/new'
-  @resource 'post',             path: '/posts/:post_id'
-  @route    'posts.edit',       path: '/posts/:post_id/edit'
+  @route    'posts.new',  path: '/posts/new'
+  @resource 'post',       path: '/posts/:post_id'
+  @route    'posts.edit', path: '/posts/:post_id/edit'
 
 Helplog.ApplicationRoute = Ember.Route.extend
   setupController: -> @controllerFor('login').set 'content', Helplog.Session.create()
