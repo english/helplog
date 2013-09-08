@@ -62,6 +62,7 @@ gem 'bcrypt-ruby', '~> 3.0.0', require: 'bcrypt'
 gem 'redcarpet'
 
 gem 'ember-rails'
-gem 'ember-source', '1.0.0.rc6.4'
+gem 'ember-source', '1.0.0'
 gem 'handlebars-source', '~> 1.0.12'
 gem 'active_model_serializers'
+gem 'newrelic_rpm'
