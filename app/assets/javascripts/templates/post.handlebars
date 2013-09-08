@@ -4,7 +4,7 @@
     <div class="body">{{markdown body}}</div>
     {{#if isLoggedIn}}
       {{#linkTo 'posts.edit' this class="btn btn-warning"}}Edit{{/linkTo}}
-      <button {{action 'delete' model}} type="button" class="btn btn-danger">Delete</button>
+      <button {{action 'delete'}} type="button" class="btn btn-danger">Delete</button>
     {{/if}}
   </div>
 

@@ -15,22 +15,18 @@ Helplog.IndexRoute = Ember.Route.extend
   redirect: -> @transitionTo 'posts'
 
 Helplog.PostsRoute = Ember.Route.extend
-  model: -> Helplog.Post.find()
+  model: -> @get('store').find 'post'
 
 Helplog.AuthenticatedRoute = Ember.Route.extend
   redirect: -> @transitionTo 'index' unless Helplog.get 'isLoggedIn'
 
 Helplog.PostsNewRoute = Helplog.AuthenticatedRoute.extend
-  model: -> Helplog.Post.createRecord()
+  model: -> @get('store').createRecord 'post'
   renderTemplate: -> @render 'posts/form'
 
 Helplog.PostsEditRoute = Helplog.AuthenticatedRoute.extend
-  model: (params) -> Helplog.Post.find params.post_id
+  model: (params) -> @get('store').find 'post', params.post_id
   renderTemplate: -> @render 'posts/form'
 
 Helplog.PostRoute = Ember.Route.extend
-  model: (params) -> Helplog.Post.find params.post_id
-
-Helplog.SessionsNewRoute = Ember.Route.extend
-  model: -> Helplog.Session.createRecord()
-  redirect: -> @transitionTo 'index' if Helplog.get('isLoggedIn')
+  model: (params) -> @get('store').find 'post', params.post_id

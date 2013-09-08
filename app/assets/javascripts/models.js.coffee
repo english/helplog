@@ -1,6 +1,6 @@
-Helplog.Store = DS.Store.extend
-  revision: 13
-  adapter: DS.RESTAdapter.create()
+#Helplog.Store = DS.Store.extend
+  #revision: 13
+  #adapter: DS.RESTAdapter.create()
 
 Helplog.Session = Ember.Object.extend
   save: ->

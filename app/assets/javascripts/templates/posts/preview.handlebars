@@ -4,6 +4,6 @@
 
   {{#if isLoggedIn}}
     {{#linkTo 'posts.edit' model class="btn btn-warning"}}Edit{{/linkTo}}
-    <a {{action 'delete' model}} class="btn btn-danger">Delete</a>
+    <a {{action 'delete'}} class="btn btn-danger">Delete</a>
   {{/if}}
 </article>

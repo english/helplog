@@ -1,25 +1,29 @@
 Helplog.ApplicationController = Ember.Controller.extend
   isLoggedInBinding: 'Helplog.isLoggedIn'
-  showLoginForm: -> @set 'isLoggingIn', true
-  logout: ->
-    Helplog.Session.create().destroy().then -> Helplog.set 'isLoggedIn', false
+  actions:
+    showLoginForm: -> @set 'isLoggingIn', true
+    logout: ->
+      Helplog.Session.create().destroy().then -> Helplog.set 'isLoggedIn', false
 
 Helplog.LoginController = Ember.ObjectController.extend
   needs: 'application'
-  cancel: -> @set 'controllers.application.isLoggingIn', false
-  login: ->
-    saving = @get('content').save()
-    saving.done =>
-      Helplog.set 'isLoggedIn', true
-      @set 'hasError', false
-      @set 'controllers.application.isLoggingIn', false
-    saving.fail => @set 'hasError', true
+  actions:
+    cancel: -> @set 'controllers.application.isLoggingIn', false
+    login: ->
+      saving = @get('content').save()
+      saving.done =>
+        Helplog.set 'isLoggedIn', true
+        @set 'hasError', false
+        @set 'controllers.application.isLoggingIn', false
+      saving.fail => @set 'hasError', true
 
 Helplog.PostDeleteable = Ember.Mixin.create
-  delete: (post) ->
-    post.on 'didDelete', this, -> @transitionToRoute 'index'
-    post.deleteRecord()
-    @get('store').commit()
+  actions:
+    delete: (post) ->
+      post = @get 'model'
+      post.on 'didDelete', this, -> @transitionToRoute 'index'
+      post.deleteRecord()
+      post.save()
 
 Helplog.PostsController = Ember.ArrayController.extend
   isLoggedInBinding: 'Helplog.isLoggedIn'
@@ -43,12 +47,16 @@ Helplog.PostsPreviewController = Ember.ObjectController.extend Helplog.PostDelet
 
 Helplog.PostsNewController = Ember.ObjectController.extend
   postAction: 'New'
-  save: (post) ->
-    post.on 'didCreate', this, -> @transitionToRoute 'index'
-    @get('store').commit()
+  actions:
+    save: ->
+      post = @get 'model'
+      post.on 'didCreate', this, -> @transitionToRoute 'index'
+      post.save()
 
 Helplog.PostsEditController = Ember.ObjectController.extend
   postAction: 'Edit'
-  save: (post) ->
-    post.on 'didUpdate', this, -> @transitionToRoute 'index'
-    @get('store').commit()
+  actions:
+    save: ->
+      post = @get 'model'
+      post.on 'didUpdate', this, -> @transitionToRoute 'index'
+      post.save()
