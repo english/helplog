@@ -1,8 +1,6 @@
-#Helplog.Store = DS.Store.extend
-  #revision: 13
-  #adapter: DS.RESTAdapter.create()
+App.Store = DS.Store.extend()
 
-Helplog.Session = Ember.Object.extend
+App.Session = Ember.Object.extend
   save: ->
     $.post '/sessions',
       session:
@@ -13,7 +11,7 @@ Helplog.Session = Ember.Object.extend
       url: '/sessions/current'
       type: 'DELETE'
   
-Helplog.Post = DS.Model.extend
+App.Post = DS.Model.extend
   title: DS.attr('string')
   intro: DS.attr('string')
   body: DS.attr('string')

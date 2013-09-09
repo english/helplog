@@ -1,23 +1,23 @@
-Helplog.ApplicationController = Ember.Controller.extend
-  isLoggedInBinding: 'Helplog.isLoggedIn'
+App.ApplicationController = Ember.Controller.extend
+  isLoggedInBinding: 'App.isLoggedIn'
   actions:
     showLoginForm: -> @set 'isLoggingIn', true
     logout: ->
-      Helplog.Session.create().destroy().then -> Helplog.set 'isLoggedIn', false
+      App.Session.create().destroy().then -> App.set 'isLoggedIn', false
 
-Helplog.LoginController = Ember.ObjectController.extend
+App.LoginController = Ember.ObjectController.extend
   needs: 'application'
   actions:
     cancel: -> @set 'controllers.application.isLoggingIn', false
     login: ->
       saving = @get('content').save()
       saving.done =>
-        Helplog.set 'isLoggedIn', true
+        App.set 'isLoggedIn', true
         @set 'hasError', false
         @set 'controllers.application.isLoggingIn', false
       saving.fail => @set 'hasError', true
 
-Helplog.PostDeleteable = Ember.Mixin.create
+App.PostDeleteable = Ember.Mixin.create
   actions:
     delete: (post) ->
       post = @get 'model'
@@ -25,8 +25,8 @@ Helplog.PostDeleteable = Ember.Mixin.create
       post.deleteRecord()
       post.save()
 
-Helplog.PostsController = Ember.ArrayController.extend
-  isLoggedInBinding: 'Helplog.isLoggedIn'
+App.PostsController = Ember.ArrayController.extend
+  isLoggedInBinding: 'App.isLoggedIn'
   publishedPosts: (->
     @get('content').filterProperty('published', true)
   ).property 'content.@each.published'
@@ -37,15 +37,15 @@ Helplog.PostsController = Ember.ArrayController.extend
     @get('draftPosts').length > 0
   ).property 'content.@each.published'
 
-Helplog.PostController = Ember.ObjectController.extend Helplog.PostDeleteable,
+App.PostController = Ember.ObjectController.extend App.PostDeleteable,
   isLoggedIn: null
-  isLoggedInBinding: 'Helplog.isLoggedIn'
+  isLoggedInBinding: 'App.isLoggedIn'
 
-Helplog.PostsPreviewController = Ember.ObjectController.extend Helplog.PostDeleteable,
+App.PostsPreviewController = Ember.ObjectController.extend App.PostDeleteable,
   isLoggedIn: null
-  isLoggedInBinding: 'Helplog.isLoggedIn'
+  isLoggedInBinding: 'App.isLoggedIn'
 
-Helplog.PostsNewController = Ember.ObjectController.extend
+App.PostsNewController = Ember.ObjectController.extend
   postAction: 'New'
   actions:
     save: ->
@@ -53,7 +53,7 @@ Helplog.PostsNewController = Ember.ObjectController.extend
       post.on 'didCreate', this, -> @transitionToRoute 'index'
       post.save()
 
-Helplog.PostsEditController = Ember.ObjectController.extend
+App.PostsEditController = Ember.ObjectController.extend
   postAction: 'Edit'
   actions:
     save: ->

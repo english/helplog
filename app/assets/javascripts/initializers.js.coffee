@@ -4,4 +4,4 @@ Ember.Application.initializer
     attributes = $('meta[name="current-session"]').attr('content')
     if attributes
       session = JSON.parse(attributes).session
-      Helplog.set 'isLoggedIn', session.active
+      App.set 'isLoggedIn', session.active
