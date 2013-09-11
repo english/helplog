@@ -17,6 +17,7 @@
 //= require underscore
 //= require underscore.string
 //= require markdown
+//= require moment
 //= require handlebars
 //= require ember
 //= require ember-data

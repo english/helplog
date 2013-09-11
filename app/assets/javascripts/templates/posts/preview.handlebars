@@ -1,5 +1,8 @@
-<article class="post">
-  <h2 class="title">{{#linkTo 'post' model}}{{title}}{{/linkTo}}</h2>
+<article class="post preview">
+  <h2 class="title">
+    {{#linkTo 'post' model}}{{title}}{{/linkTo}}
+    <small class="pull-right">{{format-date updatedAt}}</small>
+  </h2>
   <div class="intro">{{markdown intro}}</div>
 
   {{#if isLoggedIn}}
