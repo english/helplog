@@ -28,10 +28,12 @@ App.PostDeleteable = Ember.Mixin.create
 App.PostsController = Ember.ArrayController.extend
   isLoggedInBinding: 'App.isLoggedIn'
   publishedPosts: (->
-    @get('content').filterProperty('published', true)
+    @get('content').filterProperty('published', true).sort (x, y) ->
+      x.get('updatedAt') < y.get('updatedAt')
   ).property 'content.@each.published'
   draftPosts: (->
-    @get('content').filterProperty('published', false)
+    @get('content').filterProperty('published', false).sort (x, y) ->
+      x.get('updatedAt') < y.get('updatedAt')
   ).property 'content.@each.published'
   hasDraftPosts: (->
     @get('draftPosts').length > 0
