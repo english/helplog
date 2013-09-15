@@ -1,11 +1,11 @@
 App.Router.reopen
-  location: 'history'
   rootURL:  '/'
 
 App.Router.map ->
   @resource 'posts'
+  @resource 'post', path: '/posts/:post_id', ->
+    @resource 'comments', -> @route 'new'
   @route    'posts.new',  path: '/posts/new'
-  @resource 'post',       path: '/posts/:post_id'
   @route    'posts.edit', path: '/posts/:post_id/edit'
 
 App.ApplicationRoute = Ember.Route.extend
@@ -30,3 +30,11 @@ App.PostsEditRoute = App.AuthenticatedRoute.extend
 
 App.PostRoute = Ember.Route.extend
   model: (params) -> @get('store').find 'post', params.post_id
+
+App.CommentsNewRoute = Ember.Route.extend
+  model: (params) -> @get('store').createRecord 'comment', post: @modelFor('post')
+  actions:
+    save: (comment) ->
+      comment.save().then =>
+        @modelFor('post').get('comments').addObject(comment)
+        @transitionTo 'post', @modelFor 'post'

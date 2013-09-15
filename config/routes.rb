@@ -3,4 +3,5 @@ Helplog::Application.routes.draw do
 
   resources :sessions
   resources :posts
+  resources :comments
 end

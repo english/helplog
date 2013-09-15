@@ -1,15 +1,28 @@
 <div class="row">
   <div role="main" class="col-sm-8">
     <h1>{{title}}</h1>
-
     <p class="text-muted">Last updated: {{format-date updatedAt}}</p>
-
     <div class="body">{{markdown body}}</div>
 
     {{#if isLoggedIn}}
       {{#linkTo 'posts.edit' this class="btn btn-warning"}}Edit{{/linkTo}}
       <button {{action 'delete'}} type="button" class="btn btn-danger">Delete</button>
     {{/if}}
+
+    <div class="comments">
+      {{#if comments}}
+        <h2>Comments</h2>
+        {{#each comment in comments}}
+          <div class="panel panel-default">
+            <div class="panel-body">{{comment.body}}</div>
+          </div>
+        {{/each}}
+      {{/if}}
+
+      {{#linkTo 'comments.new' this class="btn btn-primary new-comment" activeClass="hidden"}}New Comment{{/linkTo}}
+
+      {{outlet}}
+    </div>
   </div>
 
   <div class="col-sm-4">

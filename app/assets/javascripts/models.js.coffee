@@ -30,3 +30,8 @@ App.Post = DS.Model.extend
   body: DS.attr('string')
   published: DS.attr('boolean')
   updatedAt: DS.attr('string')
+  comments: DS.hasMany('comment', async: true)
+
+App.Comment = DS.Model.extend
+  body: DS.attr('string')
+  post: DS.belongsTo('post')
