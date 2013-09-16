@@ -13,9 +13,7 @@
       {{#if comments}}
         <h2>Comments</h2>
         {{#each comment in comments}}
-          <div class="panel panel-default">
-            <div class="panel-body">{{comment.body}}</div>
-          </div>
+          {{render "comment" comment}}
         {{/each}}
       {{/if}}
 

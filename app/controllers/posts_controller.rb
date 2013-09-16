@@ -33,8 +33,4 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit %i(title intro body published)
   end
-
-  def authenticate
-    render json: { errors: 'forbidden' }, status: :forbidden unless logged_in?
-  end
 end

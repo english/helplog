@@ -1,4 +1,4 @@
-<form class="form-horizontal">
+<form class="form-horizontal new-comment">
   <fieldset>
     <div class="row">
       <div class="col-sm-12">
@@ -8,7 +8,7 @@
 
     <div class="form-group">
       <div class="col-sm-12">
-        {{view Ember.TextArea valueBinding='body' cols="30" rows="5" viewName="bodyField" class="form-control" placeholder="Comment here..."}}
+        {{view Ember.TextArea valueBinding='body' cols="30" rows="5" viewName="bodyField" class="form-control" placeholder="Comment here..." name="body"}}
       </div>
     </div>
 

@@ -1,0 +1,8 @@
+<div class="comment">
+  <div class="panel panel-default">
+    <div class="panel-body">{{comment.body}}</div>
+  </div>
+  {{#if isLoggedIn}}
+    <button class="btn btn-warn" {{action 'deleteComment' comment}}>Delete</button>
+  {{/if}}
+</div>
