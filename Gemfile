@@ -59,8 +59,6 @@ gem 'bcrypt-ruby', '~> 3.0.0', require: 'bcrypt'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'redcarpet'
-
 gem 'ember-rails'
 gem 'ember-source', '1.0.0'
 gem 'handlebars-source', '~> 1.0.12'
