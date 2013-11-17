@@ -46,9 +46,10 @@ App.PostController = Ember.ObjectController.extend App.PostDeleteable,
 App.CommentController = Ember.ObjectController.extend
   isLoggedIn: null
   isLoggedInBinding: 'App.isLoggedIn'
-  deleteComment: (comment) ->
-    comment.deleteRecord()
-    comment.save()
+  actions:
+    deleteComment: (comment) ->
+      comment.deleteRecord()
+      comment.save()
 
 App.PostsPreviewController = Ember.ObjectController.extend App.PostDeleteable,
   isLoggedIn: null
