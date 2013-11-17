@@ -32,7 +32,8 @@ class ManageCommentsTest < ActionDispatch::IntegrationTest
       click_button 'Delete'
     end
 
-    logout
+    click_link 'Logout'
+
     visit root_path
     click_link 'Ember.js'
 
