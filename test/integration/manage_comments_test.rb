@@ -12,7 +12,7 @@ class ManageCommentsTest < ActionDispatch::IntegrationTest
       click_button 'Save'
     end
     
-    sleep 0.5
+    sleep 0.25
 
     visit root_path
     click_link 'tmux'
@@ -23,6 +23,7 @@ class ManageCommentsTest < ActionDispatch::IntegrationTest
   test "deleting a comment" do
     visit root_path
     login
+    sleep 0.25
 
     click_link 'Ember.js'
     assert page.has_content?('Ember.js is the shit.')
