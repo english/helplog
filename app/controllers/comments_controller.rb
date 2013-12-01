@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
 
   def create
     comment = params[:comment]
-    respond_with Post.find(comment[:post]).comments.create(body: comment[:body])
+    respond_with Post.find(comment[:post_id]).comments.create(body: comment[:body])
   end
 
   def destroy

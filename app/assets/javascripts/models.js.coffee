@@ -1,4 +1,5 @@
-App.Store = DS.Store.extend()
+App.Store = DS.Store.extend
+  adapter: DS.ActiveModelAdapter
 
 App.Session = Ember.Object.extend
   save: ->
