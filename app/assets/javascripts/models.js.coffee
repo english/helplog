@@ -21,5 +21,6 @@ App.Post = DS.Model.extend
   comments: DS.hasMany('comment', async: true)
 
 App.Comment = DS.Model.extend
+  author: DS.attr('string')
   body: DS.attr('string')
   post: DS.belongsTo('post')

@@ -9,6 +9,7 @@ class ManageCommentsTest < ActionDispatch::IntegrationTest
 
     within '.new-comment' do
       fill_in 'body', with: 'This is amaaazing!'
+      fill_in 'author', with: 'jdog'
       click_button 'Save'
     end
     
@@ -17,7 +18,8 @@ class ManageCommentsTest < ActionDispatch::IntegrationTest
     visit root_path
     click_link 'tmux'
 
-    assert page.has_content?('This is amaaazing!')
+    assert page.has_content?('This is amaaazing!'), 'Comment body not present'
+    assert page.has_content?('jdog'), 'Comment author not present'
   end
 
   test "deleting a comment" do

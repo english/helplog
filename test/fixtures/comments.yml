@@ -1,7 +1,9 @@
 i_love_rails:
   post: rails_4
   body: I love Rails 4.
+  author: rails_lover
 
 ember_js_is_the_shit:
   post: ember_js
   body: Ember.js is the shit.
+  author: ember_lover
