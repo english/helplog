@@ -23,4 +23,5 @@
 //= require ember-data
 //= require_self
 //= require app
+//= require_tree ./controllers
 //= require_tree .
