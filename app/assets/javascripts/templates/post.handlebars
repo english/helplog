@@ -15,9 +15,11 @@
         {{render "comments" comments}}
       {{/if}}
 
-      {{#linkTo 'comments.new' this class="btn btn-primary new-comment" activeClass="hidden"}}New Comment{{/linkTo}}
+      {{#linkTo 'post.newComment' this class="btn btn-primary new-comment" activeClass="hidden"}}New Comment{{/linkTo}}
 
-      {{outlet}}
+      <div class="post-outlet">
+        {{outlet}}
+      </div>
     </div>
   </div>
 

@@ -3,8 +3,7 @@ App.Router.reopen
 
 App.Router.map ->
   @resource 'posts'
-  @resource 'post', path: '/posts/:post_id', ->
-    @resource 'comments', -> @route 'new'
+  @resource 'post', path: '/posts/:post_id', -> @route 'newComment'
   @route    'posts.new',  path: '/posts/new'
   @route    'posts.edit', path: '/posts/:post_id/edit'
 
@@ -31,10 +30,5 @@ App.PostsEditRoute = App.AuthenticatedRoute.extend
 App.PostRoute = Ember.Route.extend
   model: (params) -> @get('store').find 'post', params.post_id
 
-App.CommentsNewRoute = Ember.Route.extend
+App.PostNewCommentRoute = Ember.Route.extend
   model: (params) -> @get('store').createRecord 'comment', post: @modelFor('post')
-  actions:
-    save: (comment) ->
-      comment.save().then =>
-        @modelFor('post').get('comments').addObject(comment)
-        @transitionTo 'post', @modelFor 'post'
