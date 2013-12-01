@@ -7,8 +7,8 @@ class CommentsController < ApplicationController
   end
 
   def create
-    comment = params[:comment]
-    respond_with Post.find(comment[:post_id]).comments.create(body: comment[:body])
+    post = Post.find(comment_params[:post_id])
+    respond_with post.comments.create(body: comment_params[:body])
   end
 
   def destroy
@@ -18,6 +18,6 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit %i(body post)
+    params.require(:comment).permit %i(body post_id)
   end
 end
