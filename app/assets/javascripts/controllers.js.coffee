@@ -43,6 +43,8 @@ App.PostController = Ember.ObjectController.extend App.PostDeleteable,
   isLoggedIn: null
   isLoggedInBinding: 'App.isLoggedIn'
 
+App.CommentsController = Ember.ArrayController.extend()
+
 App.CommentController = Ember.ObjectController.extend
   isLoggedIn: null
   isLoggedInBinding: 'App.isLoggedIn'

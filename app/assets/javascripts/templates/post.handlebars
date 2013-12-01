@@ -12,9 +12,7 @@
     <div class="comments">
       {{#if comments}}
         <h2>Comments</h2>
-        {{#each comment in comments}}
-          {{render "comment" comment}}
-        {{/each}}
+        {{render "comments" comments}}
       {{/if}}
 
       {{#linkTo 'comments.new' this class="btn btn-primary new-comment" activeClass="hidden"}}New Comment{{/linkTo}}
