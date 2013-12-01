@@ -5,7 +5,6 @@ gem 'rails', '4.0.0'
 
 group :development do
   gem 'sqlite3'
-  gem 'pry'
 end
 
 group :test do
@@ -14,6 +13,10 @@ group :test do
   gem 'capybara'
   gem 'poltergeist', require: 'capybara/poltergeist'
   gem 'selenium-webdriver', require: false
+end
+
+group :development, :test do
+  gem 'pry'
 end
 
 group :production do
