@@ -1,5 +1,5 @@
-// Fetched from: http://builds.emberjs.com/tags/v1.0.0-beta.3/ember-data.js
-// Fetched on: 2013-12-01T20:45:12Z
+// Fetched from channel: tags/v1.0.0-beta.3, with url http://builds.emberjs.com/tags/v1.0.0-beta.3/ember-data.js
+// Fetched on: 2013-12-01T22:23:11Z
 // ==========================================================================
 // Project:   Ember Data
 // Copyright: ©2011-2012 Tilde Inc. and contributors.
