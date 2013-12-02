@@ -1,6 +1,3 @@
-App.Router.reopen
-  rootURL:  '/'
-
 App.Router.map ->
   @resource 'posts'
   @resource 'post', path: '/posts/:post_id', -> @route 'newComment'
