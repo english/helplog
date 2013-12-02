@@ -2,6 +2,11 @@ App.CommentController = Ember.ObjectController.extend
   needs: ['post']
   isLoggedIn: null
   isLoggedInBinding: 'App.isLoggedIn'
+
+  authorMessage: (->
+    "By: #{@get('author')}"
+  ).property('author')
+
   actions:
     deleteComment: (comment) ->
       comment.deleteRecord()

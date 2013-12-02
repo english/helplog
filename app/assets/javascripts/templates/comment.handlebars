@@ -1,13 +1,7 @@
 <div class="comment">
-  <div class="panel panel-default">
-    <div class="panel-body">
-      <p>{{body}}</p>
-    </div>
-
-    <div class="panel-footer">
-      <small class="text-muted">By: {{author}}</small>
-    </div>
-  </div>
+  {{#bs-panel footer=authorMessage footerClass="text-muted"}}
+    {{body}}
+  {{/bs-panel}}
 
   {{#if isLoggedIn}}
     <button class="btn btn-warn" {{action 'deleteComment' this}}>Delete</button>

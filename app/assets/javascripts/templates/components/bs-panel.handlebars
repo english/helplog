@@ -1,0 +1,11 @@
+<div class="panel panel-default">
+  {{#if heading}}
+    <div class="panel-heading">{{heading}}</div>
+  {{/if}}
+
+  <div {{bindAttr class="bodyClass :panel-body"}}>{{yield}}</div>
+
+  {{#if footer}}
+    <div {{bindAttr class="footerClass :panel-footer"}}>{{footer}}</div>
+  {{/if}}
+</div>
