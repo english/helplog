@@ -15,12 +15,16 @@ class CommentsControllerTest < ActionController::TestCase
   end
 
   test "index" do
+    comment_doubles = [
+      OpenStruct.new(id: 1, post_id: 1, body: 'Shits dope', author: 'Some dude'),
+      OpenStruct.new(id: 2, post_id: 1, body: 'Its crap', author: 'MiserableGit')
+    ]
+
+    Comment.expects(:all)
+           .returns(comment_doubles)
+
     get :index, format: :json
 
-    regex = /\{"comments":\[\
-{"id":\d+,"post_id":\d+,"body":"Ember.js is the shit\.","author":"ember_lover"\},\
-{"id":\d+,"post_id":\d+,"body":"I love Rails 4\.","author":"rails_lover"\}\]\}/
-
-    assert_match regex, @response.body
+    assert_equal '{"comments":[{"table":{"id":1,"post_id":1,"body":"Shits dope","author":"Some dude"}},{"table":{"id":2,"post_id":1,"body":"Its crap","author":"MiserableGit"}}]}', @response.body
   end
 end

@@ -13,6 +13,7 @@ group :test do
   gem 'capybara'
   gem 'poltergeist', require: 'capybara/poltergeist'
   gem 'selenium-webdriver', require: false
+  gem 'mocha', require: false
 end
 
 group :development, :test do
