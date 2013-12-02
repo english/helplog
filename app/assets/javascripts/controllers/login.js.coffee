@@ -3,9 +3,8 @@ App.LoginController = Ember.ObjectController.extend
   actions:
     cancel: -> @set 'controllers.application.isLoggingIn', false
     login: ->
-      saving = @get('content').save()
-      saving.done =>
+      @get('content').save().then =>
         App.set 'isLoggedIn', true
         @set 'hasError', false
         @set 'controllers.application.isLoggingIn', false
-      saving.fail => @set 'hasError', true
+      , => @set 'hasError', true

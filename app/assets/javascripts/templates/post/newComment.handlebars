@@ -1,8 +1,16 @@
-<form class="form-horizontal new-comment">
+<form {{bindAttr class="hasError :form-horizontal :new-comment"}}>
   <fieldset>
     <div class="row">
       <div class="col-sm-12">
         <legend>New Comment</legend>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+        {{#if hasError}}
+          <p class="text-danger">Both fields are required.</p>
+        {{/if}}
       </div>
     </div>
 
