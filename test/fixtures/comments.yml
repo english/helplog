@@ -7,3 +7,8 @@ ember_js_is_the_shit:
   post: ember_js
   body: Ember.js is the shit.
   author: ember_lover
+
+tmux:
+  post: tmux
+  body: Tmux sucks balls
+  author: hater
