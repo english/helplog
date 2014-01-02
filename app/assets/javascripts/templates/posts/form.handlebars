@@ -9,40 +9,40 @@
         </div>
 
         <div class="form-group">
-          <label {{bindAttr for="view.titleField.elementId"}} class="col-sm-1 control-label">Title</label>
+          <label for="Title" class="col-sm-1 control-label">Title</label>
 
           <div class="col-sm-11">
-            {{view Ember.TextField valueBinding='title' cols="30" viewName="titleField" class="form-control" placeholder="Title"}}
+            {{view Ember.TextField valueBinding='title' cols="30" name="Title" class="form-control" placeholder="Title"}}
           </div>
         </div>
 
         <div class="form-group">
-          <label {{bindAttr for="view.introField.elementId"}} class="col-sm-1 control-label">Intro</label>
+          <label for="Intro" class="col-sm-1 control-label">Intro</label>
 
           <div class="col-sm-11">
-            {{view Ember.TextArea valueBinding='intro' cols="30" rows="5" viewName="introField" class="form-control" placeholder="Short intro to appear on post listing"}}
+            {{view Ember.TextArea valueBinding="intro" cols="30" rows="5" name="Intro" class="form-control" placeholder="Short intro to appear on post listing"}}
           </div>
         </div>
 
         <div class="form-group">
-          <label {{bindAttr for="view.bodyField.elementId"}} class="col-sm-1 control-label">Body</label>
+          <label for="Body" class="col-sm-1 control-label">Body</label>
           <div class="col-sm-11">
-            {{view Ember.TextArea valueBinding='body' cols="50" rows="30" viewName="bodyField" class="form-control" placeholder="Body"}}
+            {{view Ember.TextArea valueBinding="body" cols="50" rows="30" name="Body" class="form-control" placeholder="Body"}}
           </div>
         </div>
 
         <div class="form-group">
           <div class="col-sm-offset-1 col-sm-11">
             <div class="checkbox">
-              <label {{bindAttr for="view.publishedField.elementId"}}>Published?</label>
-              {{view Ember.Checkbox checkedBinding="published" viewName="publishedField"}}
+              <label for="Published">Published?</label>
+              {{view Ember.Checkbox checkedBinding="published" name="Published"}}
             </div>
           </div>
         </div>
 
         <div class="form-group">
           <div class="col-sm-offset-1 col-sm-11">
-            <button {{action 'save' }} type="button" class="btn btn-primary">Save</button>
+            <button {{action 'save'}} type="button" class="btn btn-primary save">Save</button>
           </div>
         </div>
       </fieldset>
@@ -51,7 +51,10 @@
 
   <div class="col-sm-6">
     <h1>{{title}}</h1>
-    <div class="intro well well-sm"><p class="text-info">This will only be shown on the posts index page.</p>{{markdown intro}}</div>
+    <div class="intro well well-sm">
+      <p class="text-info">This will only be shown on the posts index page.</p>
+      {{markdown intro}}
+    </div>
     <div class="body">{{markdown body}}</div>
   </div>
 </div>

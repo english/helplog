@@ -1,5 +1,9 @@
-App.Store = DS.Store.extend
-  adapter: DS.ActiveModelAdapter
+if Ember.ENV.env == 'production'
+  App.Store = DS.Store.extend
+    adapter: DS.ActiveModelAdapter
+else
+  App.Store = DS.Store.extend
+    adapter: DS.FixtureAdapter
 
 App.Session = Ember.Object.extend
   save: ->
@@ -11,7 +15,7 @@ App.Session = Ember.Object.extend
     $.ajax
       url: '/sessions/current'
       type: 'DELETE'
-  
+
 App.Post = DS.Model.extend
   title: DS.attr('string')
   intro: DS.attr('string')

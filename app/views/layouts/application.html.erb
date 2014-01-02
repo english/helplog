@@ -11,6 +11,8 @@
     <% if logged_in? %>
       <meta name="current-session" content="<%= { session: { id: 'current', active: logged_in? } }.to_json %>" />
     <% end %>
+
+    ENV = { env: '<%= Rails.env %>' }
   </head>
 
   <body>

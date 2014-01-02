@@ -4,7 +4,8 @@ App.LoginController = Ember.ObjectController.extend
     cancel: -> @set 'controllers.application.isLoggingIn', false
     login: ->
       @get('content').save().then =>
-        App.set 'isLoggedIn', true
-        @set 'hasError', false
-        @set 'controllers.application.isLoggingIn', false
+        Ember.run =>
+          App.set 'isLoggedIn', true
+          @set 'hasError', false
+          @set 'controllers.application.isLoggingIn', false
       , => @set 'hasError', true
