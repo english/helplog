@@ -1,4 +1,4 @@
-if Ember.ENV.env == 'production'
+if Ember.ENV.env != 'test'
   App.Store = DS.Store.extend
     adapter: DS.ActiveModelAdapter
 else
