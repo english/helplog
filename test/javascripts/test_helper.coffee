@@ -32,6 +32,9 @@ App.rootElement = '#ember-testing'
 App.setupForTesting()
 App.injectTestHelpers()
 
+App.Store = DS.Store.extend
+  adapter: DS.FixtureAdapter
+
 App.Post.FIXTURES = []
 App.Comment.FIXTURES = []
 
