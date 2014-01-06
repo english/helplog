@@ -12,7 +12,7 @@ class ManageCommentsTest < ActionDispatch::IntegrationTest
       fill_in 'author', with: 'jdog'
       click_button 'Save'
     end
-    
+
     sleep 0.25
 
     visit root_path

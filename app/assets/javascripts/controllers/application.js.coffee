@@ -4,5 +4,4 @@ App.ApplicationController = Ember.Controller.extend
     showLoginForm: -> @set 'isLoggingIn', true
     logout: ->
       App.Session.create().destroy().then ->
-        Ember.run ->
-          App.set 'isLoggedIn', false
+        Ember.run -> App.set 'isLoggedIn', false

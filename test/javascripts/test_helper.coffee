@@ -28,8 +28,6 @@ document.write """
                </style>
                """
 
-
-App.Post.FIXTURES = []
 App.rootElement = '#ember-testing'
 App.setupForTesting()
 App.injectTestHelpers()

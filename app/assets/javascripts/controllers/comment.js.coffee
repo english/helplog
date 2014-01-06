@@ -8,9 +8,9 @@ App.CommentController = Ember.ObjectController.extend
   ).property('author')
 
   actions:
-    deleteComment: (comment) ->
-      comment.deleteRecord()
-      comment.save().then =>
+    deleteComment: ->
+      comment = @get 'model'
+      comment.destroyRecord().then =>
         @get('controllers.post.content.comments').removeObject comment
 
 App.PostNewCommentController = Ember.ObjectController.extend

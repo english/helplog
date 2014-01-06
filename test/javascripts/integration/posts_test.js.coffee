@@ -1,6 +1,8 @@
-module "Integration Tests",
+module "Posts",
   setup: ->
-    App.reset()
+    Ember.run ->
+      App.set 'isLoggedIn', false
+      App.reset()
 
 login = ->
   click 'a:contains("Login")'

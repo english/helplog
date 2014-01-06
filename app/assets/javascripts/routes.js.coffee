@@ -24,8 +24,5 @@ App.PostsEditRoute = App.AuthenticatedRoute.extend
   model: (params) -> @get('store').find 'post', params.post_id
   renderTemplate: -> @render 'posts/form'
 
-App.PostRoute = Ember.Route.extend
-  model: (params) -> @get('store').find 'post', params.post_id
-
 App.PostNewCommentRoute = Ember.Route.extend
   model: (params) -> @get('store').createRecord 'comment', post: @modelFor('post')

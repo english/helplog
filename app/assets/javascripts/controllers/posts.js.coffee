@@ -1,6 +1,6 @@
 App.PostDeleteable = Ember.Mixin.create
   actions:
-    delete: (post) ->
+    delete: ->
       post = @get 'model'
       post.on 'didDelete', this, -> @transitionToRoute 'index'
       post.deleteRecord()

@@ -1,9 +1,9 @@
-if Ember.ENV.env != 'test'
-  App.Store = DS.Store.extend
-    adapter: DS.ActiveModelAdapter
-else
+if Ember.ENV.env == 'test'
   App.Store = DS.Store.extend
     adapter: DS.FixtureAdapter
+else
+  App.Store = DS.Store.extend
+    adapter: DS.ActiveModelAdapter
 
 App.Session = Ember.Object.extend
   save: ->
