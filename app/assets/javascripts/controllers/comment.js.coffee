@@ -16,8 +16,10 @@ App.CommentController = Ember.ObjectController.extend
 App.PostNewCommentController = Ember.ObjectController.extend
   needs: ['post']
   actions:
-    save: (comment) ->
+    save: ->
+      comment = @get('model')
+      comment.set 'post', @get('controllers.post.content')
       comment.save().then =>
-        @get('controllers.post.content.comments').addObject comment
+        @get('controllers.post.comments').addObject comment
         @transitionToRoute 'post', @get('controllers.post.content')
       , => @set 'hasError', true

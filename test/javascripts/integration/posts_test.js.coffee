@@ -1,45 +1,37 @@
 module "Posts",
   setup: ->
-    Ember.run ->
-      App.set 'isLoggedIn', false
-      App.reset()
+    App.reset()
+    App.Post.FIXTURES = App.Comment.FIXTURES = []
+    Ember.run -> App.set 'isLoggedIn', false
 
-login = ->
-  click 'a:contains("Login")'
-  fillIn 'input[name=Email]', 'someone@example.com'
-  fillIn 'input[name=Password]', 'secret'
-  click 'input[type=submit]'
-
-logout = -> click 'a:contains("Logout")'
-
-test "Login and save a post", ->
+test "Create a post", ->
   visit '/'
 
   login()
 
-  click 'a:contains("New Post")'
+  clickLink 'New Post'
   fillIn 'input[name=Title]', 'Test Blog Post Title'
   fillIn 'textarea[name=Intro]', 'Test introduction.'
   fillIn 'textarea[name=Body]', 'Some test content.'
-  click 'button:contains("Save")'
+  clickButton 'Save'
 
   andThen ->
-    ok exists('.title:contains("Test Blog Post Title")'), 'Found post title'
-    ok exists('.intro:contains("Test introduction.")'), 'Found post intro!'
+    ok hasTextWithin 'Test Blog Post Title', '.title'
+    ok hasTextWithin 'Test introduction.', '.intro'
 
-    logout()
+  logout()
 
-    andThen ->
-      ok !exists('.title:contains("Test Blog Post Title")')
-      ok !exists('.intro:contains("Test introduction.")')
+  andThen ->
+    ok !hasTextWithin 'Test Blog Post Title', '.title'
+    ok !hasTextWithin 'Test introduction.', '.intro'
 
-      login()
+  login()
 
-      click '*:contains("Test Blog Post Title")'
-      click '*:contains("Edit")'
-      click 'input[name=Published]'
-      click 'button:contains("Save")'
+  clickLink 'Test Blog Post Title'
+  clickLink 'Edit'
+  click 'input[name=Published]'
+  clickButton 'Save'
 
-      andThen ->
-        ok exists('.title:contains("Test Blog Post Title")')
-        ok exists('.intro:contains("Test introduction.")')
+  andThen ->
+    ok hasTextWithin 'Test Blog Post Title', '.title'
+    ok hasTextWithin 'Test introduction.', '.intro'

@@ -32,4 +32,20 @@ App.rootElement = '#ember-testing'
 App.setupForTesting()
 App.injectTestHelpers()
 
+App.Post.FIXTURES = []
+App.Comment.FIXTURES = []
+
+window.login = ->
+  click 'a:contains("Login")'
+  fillIn 'input[name=Email]', 'someone@example.com'
+  fillIn 'input[name=Password]', 'secret'
+  click 'input[type=submit]'
+
+window.logout = -> click 'a:contains("Logout")'
 window.exists = (selector) -> !!find(selector).length
+
+window.clickLink = (text) -> click "a:contains('#{text}')"
+window.clickButton = (text) -> click "button:contains('#{text}')"
+
+window.hasText = (text) -> hasTextWithin text, '*'
+window.hasTextWithin = (text, selector) -> exists "#{selector}:contains('#{text}')"
