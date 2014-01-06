@@ -28,15 +28,33 @@ document.write """
                </style>
                """
 
+setFixtures = ->
+  App.Post.FIXTURES = [
+    id: 1
+    title: 'Ember.js'
+    published: true
+    comments: [1]
+  ]
+
+  App.Comment.FIXTURES = [
+    id: 1
+    post: 1
+    author: 'jdog'
+    body: 'This is amaaazing!'
+  ]
+
 App.rootElement = '#ember-testing'
 App.setupForTesting()
 App.injectTestHelpers()
+setFixtures()
 
 App.Store = DS.Store.extend
-  adapter: DS.FixtureAdapter
+  adapter: DS.FixtureAdapter.extend simulateRemoteResponse: false
 
-App.Post.FIXTURES = []
-App.Comment.FIXTURES = []
+QUnit.testStart ->
+  App.reset()
+  setFixtures()
+  Ember.run -> App.set 'isLoggedIn', false
 
 window.login = ->
   click 'a:contains("Login")'

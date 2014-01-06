@@ -1,8 +1,4 @@
-module "Posts",
-  setup: ->
-    App.reset()
-    App.Post.FIXTURES = App.Comment.FIXTURES = []
-    Ember.run -> App.set 'isLoggedIn', false
+module "Posts"
 
 test "Create a post", ->
   visit '/'
