@@ -7,6 +7,7 @@ group :development do
   gem 'sqlite3'
   gem 'qunit-rails'
   gem 'pry'
+  gem 'spring'
 end
 
 group :test do
