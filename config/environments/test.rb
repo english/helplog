@@ -14,7 +14,8 @@ Helplog::Application.configure do
 
   # Configure static asset server for tests with Cache-Control for performance.
   config.serve_static_assets = true
-  config.assets.precompile += ['test_helper.js']
+  config.assets.paths << "#{Rails.root}/test/javascripts"
+  config.assets.precompile = ['test_helper.js']
 
   # Show full error reports and disable caching.
   config.consider_all_requests_local       = true

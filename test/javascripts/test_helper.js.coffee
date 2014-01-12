@@ -1,6 +1,7 @@
+#= require application
 #= require jquery.mockjax
-#= require_tree .
 #= require_self
+#= require_tree .
 
 @ENV = env: 'test'
 

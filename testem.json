@@ -1,11 +1,14 @@
 {
   "framework": "qunit",
   "launch_in_dev": [
-    "phantomjs"
+    "phantomjs",
+    "chrome",
+    "firefox",
+    "safari"
   ],
   "src_files": [
     "app/assets/javascripts/**/*.coffee",
-    "test/javascripts/*.coffee"
+    "test/javascripts/**/*.coffee"
   ],
   "serve_files": [
     "public/assets/*.js"
@@ -14,6 +17,6 @@
     "vendor/assets/stylesheets/bootstrap.css",
     "app/assets/stylesheets/application.css"
   ],
-  "before_tests": "RAILS_ENV=test rake assets:precompile",
+  "before_tests": "rm -rf public/assets && RAILS_ENV=test rake assets:precompile",
   "after_tests": "rm -rf public/assets"
 }
