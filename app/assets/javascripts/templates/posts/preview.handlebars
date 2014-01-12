@@ -1,12 +1,12 @@
 <article class="post preview">
   <h2 class="title">
-    {{#linkTo 'post' model}}{{title}}{{/linkTo}}
+    {{#link-to 'post' model}}{{title}}{{/link-to}}
     <small class="pull-right">{{format-date updatedAt}}</small>
   </h2>
   <div class="intro">{{markdown intro}}</div>
 
   {{#if isLoggedIn}}
-    {{#linkTo 'posts.edit' model class="btn btn-warning"}}Edit{{/linkTo}}
+    {{#link-to 'posts.edit' model class="btn btn-warning"}}Edit{{/link-to}}
     <a {{action 'delete'}} class="btn btn-danger">Delete</a>
   {{/if}}
 </article>

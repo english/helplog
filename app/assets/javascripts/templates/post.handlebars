@@ -5,7 +5,7 @@
     <div class="body">{{markdown body}}</div>
 
     {{#if isLoggedIn}}
-      {{#linkTo 'posts.edit' this class="btn btn-warning"}}Edit{{/linkTo}}
+      {{#link-to 'posts.edit' this class="btn btn-warning"}}Edit{{/link-to}}
       <button {{action 'delete'}} type="button" class="btn btn-danger">Delete</button>
     {{/if}}
 
@@ -15,7 +15,7 @@
         {{render "comments" comments}}
       {{/if}}
 
-      {{#linkTo 'post.newComment' this class="btn btn-primary new-comment" activeClass="hidden"}}New Comment{{/linkTo}}
+      {{#link-to 'post.newComment' this class="btn btn-primary new-comment" activeClass="hidden"}}New Comment{{/link-to}}
 
       <div class="post-outlet">
         {{outlet}}

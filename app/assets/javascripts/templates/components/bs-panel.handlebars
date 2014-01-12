@@ -3,9 +3,9 @@
     <div class="panel-heading">{{heading}}</div>
   {{/if}}
 
-  <div {{bindAttr class="bodyClass :panel-body"}}>{{yield}}</div>
+  <div {{bind-attr class="bodyClass :panel-body"}}>{{yield}}</div>
 
   {{#if footer}}
-    <div {{bindAttr class="footerClass :panel-footer"}}>{{footer}}</div>
+    <div {{bind-attr class="footerClass :panel-footer"}}>{{footer}}</div>
   {{/if}}
 </div>

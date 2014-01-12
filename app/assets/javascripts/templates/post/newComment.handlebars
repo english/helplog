@@ -1,4 +1,4 @@
-<form {{bindAttr class="hasError :form-horizontal :new-comment"}}>
+<form {{bind-attr class="hasError :form-horizontal :new-comment"}}>
   <fieldset>
     <div class="row">
       <div class="col-sm-12">
@@ -31,7 +31,7 @@
     <div class="form-group">
       <div class="col-sm-12">
         <button {{action 'save' this}} type="button" class="btn btn-primary">Save</button>
-        {{#linkTo 'post' post class="btn btn-warning" active=false}}Cancel{{/linkTo}}
+        {{#link-to 'post' post class="btn btn-warning" active=false}}Cancel{{/link-to}}
       </div>
     </div>
   </fieldset>
