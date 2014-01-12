@@ -1,6 +1,6 @@
 #= require application
-#= require_tree .
 #= require_self
+#= require_tree ./integration
 
 document.write """
                <div id="ember-testing-container">
