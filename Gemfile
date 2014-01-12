@@ -56,7 +56,8 @@ gem 'bcrypt-ruby', '~> 3.0', require: 'bcrypt'
 # gem 'debugger', group: [:development, :test]
 
 gem 'ember-rails'
-gem 'handlebars-source', '~> 1.0.12'
+gem 'ember-source', '1.3.0'
+gem 'ember-data-source', '1.0.0.beta.5'
 gem 'momentjs-rails'
 gem 'active_model_serializers'
 gem 'newrelic_rpm'
