@@ -8,6 +8,7 @@ group :development do
   gem 'qunit-rails'
   gem 'pry'
   gem 'spring'
+  gem 'teaspoon'
 end
 
 group :test do
@@ -16,6 +17,7 @@ group :test do
   gem 'mocha', require: false
   gem 'qunit-rails'
   gem 'pry'
+  gem 'teaspoon'
 end
 
 group :production do
