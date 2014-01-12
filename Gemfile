@@ -5,7 +5,6 @@ gem 'rails', '~> 4.0'
 
 group :development do
   gem 'sqlite3'
-  gem 'qunit-rails'
   gem 'pry'
   gem 'spring'
 end
@@ -14,7 +13,6 @@ group :test do
   gem 'sqlite3'
   gem 'rake'
   gem 'mocha', require: false
-  gem 'qunit-rails'
   gem 'pry'
 end
 

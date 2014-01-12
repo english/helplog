@@ -1,6 +1,8 @@
-#= require application
+#= require jquery.mockjax
 #= require_tree .
 #= require_self
+
+@ENV = env: 'test'
 
 document.write """
                <div id="ember-testing-container">
@@ -56,17 +58,28 @@ QUnit.testStart ->
   setFixtures()
   Ember.run -> App.set 'isLoggedIn', false
 
-window.login = ->
+@login = ->
   click 'a:contains("Login")'
   fillIn 'input[name=Email]', 'someone@example.com'
   fillIn 'input[name=Password]', 'secret'
   click 'input[type=submit]'
 
-window.logout = -> click 'a:contains("Logout")'
-window.exists = (selector) -> !!find(selector).length
+@logout = -> click 'a:contains("Logout")'
+@exists = (selector) -> !!find(selector).length
 
-window.clickLink = (text) -> click "a:contains('#{text}')"
-window.clickButton = (text) -> click "button:contains('#{text}')"
+@clickLink = (text) -> click "a:contains('#{text}')"
+@clickButton = (text) -> click "button:contains('#{text}')"
 
-window.hasText = (text) -> hasTextWithin text, '*'
-window.hasTextWithin = (text, selector) -> exists "#{selector}:contains('#{text}')"
+@hasText = (text) -> hasTextWithin text, '*'
+@hasTextWithin = (text, selector) -> exists "#{selector}:contains('#{text}')"
+
+Ember.$.mockjax
+  url: '/sessions/current'
+  dataType: 'json'
+
+Ember.$.mockjax
+  url: '/sessions'
+  dataType: 'json'
+
+Ember.$.mockjaxSettings.logging = false;
+Ember.$.mockjaxSettings.responseTime = 0;

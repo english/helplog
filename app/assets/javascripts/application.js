@@ -13,8 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
-//= require underscore
-//= require underscore.string
 //= require markdown
 //= require moment
 //= require handlebars

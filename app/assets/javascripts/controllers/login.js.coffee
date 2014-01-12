@@ -8,4 +8,5 @@ App.LoginController = Ember.ObjectController.extend
           App.set 'isLoggedIn', true
           @set 'hasError', false
           @set 'controllers.application.isLoggingIn', false
-      , => @set 'hasError', true
+      , =>
+        Ember.run => @set 'hasError', true
