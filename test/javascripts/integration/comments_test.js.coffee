@@ -1,8 +1,6 @@
 module "Comments"
 
 test "Create a comment", ->
-  # Ember.run -> App.__container__.lookup('store:main').find 'post'
-
   visit '/'
   clickLink 'Ember.js'
 
